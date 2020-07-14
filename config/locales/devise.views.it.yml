@@ -31,6 +31,8 @@ it:
         other: Utenti
   devise:
     confirmations:
+      form_label: 'Resend confirmation instructions'
+      button: 'Resend confirmation instructions'
       confirmed: Il tuo account è stato correttamente confermato.
       new:
         resend_confirmation_instructions: Invia di nuovo le istruzioni per la conferma
@@ -77,6 +79,8 @@ it:
       failure: Non è stato possibile autorizzarti da %{kind} perchè "%{reason}".
       success: Autorizzato con successo dall'account %{kind}.
     passwords:
+      sending_button: "Sending..."
+      send_button: "Send instructions"
       change_form_label: 'Cambia la tua passowrd'
       confirm_password: 'Conferma la tua password'
       edit:
@@ -134,6 +138,9 @@ it:
       updated_but_not_signed_in:
       no_account_yet: 'Don’t have an account?'
     sessions:
+      email: "Email"
+      password: "Password"
+      sign_in: "Login"
       signin_label: 'Login to PubliCV'
       already_signed_out: Sei uscito correttamente.
       email: "Email"

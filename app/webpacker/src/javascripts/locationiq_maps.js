@@ -23,8 +23,8 @@ window.initMap = function() {
 
   if (isHomePage()) map.scrollZoom.disable();
 
-  // Load search results from home page if any
-  loadMarkersFromPage()
+  loadMarkersFromPage() // Load search results from home page if any
+  multiTouchSupport() // disable drapPan for mobile on single touch
 };
 
 window.generateMarkers = function(searchResultsList) {
@@ -64,6 +64,25 @@ function clearMarkers() {
        marker.remove();
     });
     markers = [];
+}
+
+function multiTouchSupport(){
+  if ($(window).width() < 767) {
+
+    map.dragPan.disable();
+    map.scrollZoom.disable();
+
+    map.on('touchstart', event => {
+      const e = event.originalEvent;
+      if (e && 'touches' in e) {
+        if (e.touches.length > 1) {
+          map.dragPan.enable();
+        } else {
+          map.dragPan.disable();
+        }
+      }
+    });
+  }
 }
 
 //Add your Unwired Maps Access Token here (not the API token!)

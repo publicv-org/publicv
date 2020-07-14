@@ -34,7 +34,8 @@
         <div class="col-12">
           <div class="form-group mb-5">
             <%= f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description", class: 'text-muted d-block'%>
-            <%= f.text_area :description, class: 'form-control', rows: 8, maxlength: 255, id: "#{id}_description" %>
+            <%= f.text_area :description, class: 'form-control limit-desc', rows: 8, id: "#{id}_description" %>
+            <span class="text-muted">0/1000</span>
           </div>
         </div>
       </div>
@@ -42,7 +43,7 @@
       <div class="row">
         <div class="col-12 text-right">
           <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-outline-primary rounded' %>
-          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded' %>
+          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded submit-dt' %>
         </div>
       </div>
   </div>

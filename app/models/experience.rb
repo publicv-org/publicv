@@ -1,5 +1,5 @@
 class Experience < ApplicationRecord
-  DESCRIPTION_MAX_LENGTH = 255
+  DESCRIPTION_MAX_LENGTH = 1000
 
   belongs_to :cv
   validates :company, :title, presence: true

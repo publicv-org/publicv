@@ -74,7 +74,7 @@ en:
             city: "Current City/Province"
         show:
           entries:
-            description: "Description (max. 255 characters)"
+            description: "Description"
             on_going: "%{started_on} - Present"
           education:
             degree: "Degree: %{degree}"

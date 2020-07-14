@@ -112,7 +112,7 @@ it:
           prefer_not_to_disclose: "Preferisco non rivelare"
           male: "Maschile"
           female: "Femminile"
-          published: "Il tuo curriculum è pubblicato e visibile ai fornitori di lavoro"
+          published: "Il tuo curriculum è pubblicato e visibile ai datori di lavoro"
           unpublished: "Il tuo curriculum è visibile solo a te fino a quando non pubblichi e il tuo cognome e i dati di contatto saranno pubblicati solo sulla versione pdf che puoi scaricare. Nella versione online, una volta pubblicato, avrai un modulo di contatto."
           authorization_statement: "Dichiarazione di autorizzazione (massimo 255 caratteri)"
           authorization:

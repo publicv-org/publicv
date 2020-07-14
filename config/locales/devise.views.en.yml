@@ -31,6 +31,8 @@ en:
         other: Users
   devise:
     confirmations:
+      form_label: 'Resend confirmation instructions'
+      button: 'Resend confirmation instructions'
       confirmed: Your email address has been successfully confirmed.
       new:
         resend_confirmation_instructions: Resend confirmation instructions
@@ -77,6 +79,8 @@ en:
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.
     passwords:
+      sending_button: "Sending..."
+      send_button: "Send instructions"
       edit:
         change_my_password: Change my password
         change_your_password: Change your password
@@ -138,6 +142,9 @@ en:
       updated: Your account has been updated successfully.
       updated_but_not_signed_in: Your account has been updated successfully, but since your password was changed, you need to sign in again
     sessions:
+      email: "Email"
+      password: "Password"
+      sign_in: "Login"
       signin_label: 'Login to PubliCV'
       already_signed_out: Signed out successfully.
       new:

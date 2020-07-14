@@ -1,5 +1,5 @@
 class Education < ApplicationRecord
-  DESCRIPTION_MAX_LENGTH = 255
+  DESCRIPTION_MAX_LENGTH = 1000
   belongs_to :cv
   validates :school, presence: true
   validates :description, length: { maximum: DESCRIPTION_MAX_LENGTH }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_112642) do
+ActiveRecord::Schema.define(version: 2020_05_30_095630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_112642) do
     t.date "ended_on"
     t.string "degree", limit: 255
     t.string "school", limit: 255, null: false
-    t.string "description", limit: 255
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cv_id"], name: "index_educations_on_cv_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_112642) do
     t.string "company", limit: 255, null: false
     t.string "location", limit: 255
     t.string "title", limit: 255, null: false
-    t.string "description", limit: 255
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "website_url"
