@@ -1,42 +1,52 @@
 <% educations = @cv.educations.chronological_order %>
 
 <% if @cv_edit_controls || educations.present? %>
-  <div class="border-top py-5 pl-3 pl-md-6 pr-2">
+<div class="border-top py-5 pl-3 pl-md-6 pr-2">
     <div class="d-flex align-items-center justify-content-between">
-      <h6><%= t('content.main.cv.show.education.title') %></h6>
-      <% if @cv_edit_controls %>
-        <%= link_to new_cv_education_path, remote: true do %>
-          <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
-        <% end %>
-      <% end %>
-    </div>
-
-    <% educations.each_with_index do |education, index| %>
-      <div class="d-flex flex-row font-size-14 pt-5">
-
-        <span class="badge bg-light-1 h-100 p-2 mr-2">
-          <i class="fas fa-md fa-building text-light-2"></i>
-        </span>
-        <div class="ml-2 pb-5 w-100 <%= (index == educations.size - 1) ? '' : 'border-bottom' %>">
-          <h6 class="font-weight-bold"><%= education.school %></h6>
-          <% if education.degree.present? %>
-            <h6 class="mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
-          <% end %>
-          <p><%= study_period(education.started_on, education.ended_on) %></p>
-          <p class="mb-0">Description: </p>
-          <span><%= education.description.presence %></span>
-        </div>
-
+        <h6><%= t('content.main.cv.show.education.title') %></h6>
         <% if @cv_edit_controls %>
-          <%= link_to edit_cv_education_path(education), remote: true do %>
-            <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="icon-pencil"></i></span>
-          <% end %>
-
-          <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
-            <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="fas fa-trash-alt"></i></span>
-          <% end %>
+        <%= link_to new_cv_education_path, remote: true do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+    </div>
+    <div id="sortable">
+        <% educations.each_with_index do |education, index| %>
+        <div class="d-flex flex-row font-size-14 pt-5 ">
+
+            <span class="badge bg-light-1 h-100 p-2 mr-2">
+                <i class="fas fa-md fa-building text-light-2"></i>
+            </span>
+            <div class="ml-2 pb-5 w-100 <%= (index == educations.size - 1) ? '' : 'border-bottom' %>">
+                <h6 class="font-weight-bold"><%= education.school %></h6>
+                <% if education.degree.present? %>
+                <h6 class="mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
+                <% end %>
+                <p><%= study_period(education.started_on, education.ended_on) %></p>
+                <p class="mb-0">Description: </p>
+                <span><%= education.description.presence %></span>
+            </div>
+
+            <% if @cv_edit_controls %>
+            <%= link_to edit_cv_education_path(education), remote: true do %>
+            <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="icon-pencil"></i></span>
+            <% end %>
+
+            <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
+            <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>
 <% end %>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function() {
+        $("#sortable").sortable();
+        $("#sortable").disableSelection();
+    });
+</script>
