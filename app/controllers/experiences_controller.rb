@@ -2,6 +2,8 @@ class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cv
   before_action :set_experience, only: %i[edit update destroy]
+  skip_before_action :verify_authenticity_token, only: [:update_positions]
+
   respond_to :html, :js
 
   def new
@@ -29,6 +31,16 @@ class ExperiencesController < ApplicationController
         format.js { render 'experiences/errors' }
       end
     end
+  end
+
+  def update_positions
+    # TODO: Update experiences positions
+    if params[:data].present?
+         params[:data]&.each do |id|
+         Experience.find(value[:id]).update(:position: position + 1)
+        end
+    end 
+    head :ok
   end
 
   def destroy
