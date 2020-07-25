@@ -1,53 +1,110 @@
 <!-- CV sections
 ================================================== -->
 <div class="container middle-container-2 cvpage pb-40 pb-md-80">
-  <% if @user.present? && @cv_edit_controls.present? %>
+    <% if @user.present? && @cv_edit_controls.present? %>
+
+    <% content_for :header do %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-1.12.4.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
     <% if @cv.published? %>
-      <p class="border-bottom border-primary text-muted py-3 mb-0">
+    <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
         <%= t('content.main.cv.show.published') %>
-      </p>
+    </p>
     <% else %>
-      <p class="border-bottom border-primary text-muted py-3 mb-0">
+    <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
         <%= t('content.main.cv.show.unpublished') %>
-      </p>
+    </p>
     <% end %>
-  <% end %>
+    <% end %>
 
-  <div class="border-top border-primary">
-    <div class="border pt-6">
-      <div class="intro-section">
-        <%= render 'cvs/cv_sections/intro' %>
-      </div>
-      <%#= render 'cvs/cv_sections/locations' %>
-      <div class="summary-section">
-        <%= render 'cvs/cv_sections/summary' %>
-      </div>
-      <div class="experience-section">
-        <%= render 'cvs/cv_sections/experience' %>
-      </div>
-      <div class="education-section">
-        <%= render 'cvs/cv_sections/education' %>
-      </div>
-      <div class="languages-section">
-        <%= render 'cvs/cv_sections/languages' %>
-      </div>
-      <div class="skills-section">
-        <%= render 'cvs/cv_sections/skills' %>
-      </div>
-      <div class="extras-section">
-        <%= render 'cvs/cv_sections/extras' %>
-      </div>
-      <div class="authorization-section">
-        <%= render 'cvs/cv_sections/authorization' %>
-      </div>
+    <div class="border-top border-primary">
+        <div class="border pt-6">
+            <div class="intro-section">
+                <%= render 'cvs/cv_sections/intro' %>
+            </div>
+            <%#= render 'cvs/cv_sections/locations' %>
+            <div class="summary-section">
+                <%= render 'cvs/cv_sections/summary' %>
+            </div>
+            <div class="experience-section">
+                <%= render 'cvs/cv_sections/experience' %>
+            </div>
+            <div class="education-section">
+                <%= render 'cvs/cv_sections/education' %>
+            </div>
+            <div class="languages-section">
+                <%= render 'cvs/cv_sections/languages' %>
+            </div>
+            <div class="skills-section">
+                <%= render 'cvs/cv_sections/skills' %>
+            </div>
+            <div class="extras-section">
+                <%= render 'cvs/cv_sections/extras' %>
+            </div>
+            <div class="authorization-section">
+                <%= render 'cvs/cv_sections/authorization' %>
+            </div>
+        </div>
+
+        <% unless @cv_edit_controls %>
+        <div class="row mt-2 justify-content-center">
+            <%= link_to "Contact #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
+        </div>
+        <% end %>
     </div>
-
-    <% unless @cv_edit_controls %>
-      <div class="row mt-2 justify-content-center">
-        <%= link_to "Hire #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
-      </div>
-    <% end %>
-  </div>
 </div>
+
+<script>
+    var ready, set_positions;
+
+    set_positions = function() {
+        // loop through and give each task a data-pos
+        // attribute that holds its position in the DOM
+        $('.panel.panel-default').each(function(i) {
+            $(this).attr("data-pos", i + 1);
+        });
+    }
+
+    ready = function() {
+
+        // call set_positions function
+        set_positions();
+
+        $('#sortable').sortable();
+
+        // after the order changes
+        $('#sortable').sortable().bind('sortupdate', function(e, ui) {
+            // array to store new order
+            updated_order = []
+            // set the updated positions
+            set_positions();
+
+            // populate the updated_order array with the new task positions
+            $('.panel.panel-default').each(function(i) {
+                updated_order.push({
+                    id: $(this).data("id"),
+                    position: i + 1
+                });
+            });
+
+            // send the updated order via ajax
+            $.ajax({
+                type: "POST",
+                url: '/cv/experiences/update_positions',
+                data: {
+                    order: updated_order
+                }
+            });
+        });
+    }
+
+    $(document).ready(ready);
+    /**
+     * if using turbolinks
+     */
+    $(document).on('page:load', ready);
+</script>
