@@ -39,7 +39,6 @@ class ExperiencesController < ApplicationController
       Experience.find(value[:id]).update_attribute(:position,value[:position])
     end
     render :nothing => true
-
   end
 
   def destroy
@@ -61,5 +60,9 @@ class ExperiencesController < ApplicationController
   def experience_params
     params.require(:experience).permit(:company, :description, :ended_on, :location, :started_on, :title, :website_url)
   end
+<<<<<<< HEAD
 end
 
+=======
+end
+>>>>>>> b29bc292cd854a34d767a39c620b89bd3a40c388
