@@ -1,52 +1,53 @@
-<% experiences = @cv.experiences.chronological_order %>
+<% experiences = @cv.custom_experience_sort ? @cv.experiences.by_position :  @cv.experiences.chronological_order %>
 
 <% if @cv_edit_controls || experiences.present? %>
-  <div class="border-top py-5 pl-3 pl-md-6 pr-2">
+<div class="border-top py-5 pl-3 pl-md-6 pr-2">
     <div class="d-flex align-items-center justify-content-between">
-      <h6><%= t('content.main.cv.show.experience.title') %></h6>
-      <% if @cv_edit_controls %>
+        <h6><%= t('content.main.cv.show.experience.title') %></h6>
+        <% if @cv_edit_controls %>
         <%= link_to new_cv_experience_path, remote: true do %>
-          <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
         <% end %>
-      <% end %>
+        <% end %>
     </div>
 
-    <% experiences.each_with_index do |experience, index| %>
-      <% has_website = experience.website_url.present? %>
+    <div id='sortable'>
+        <% experiences.each_with_index do |experience, index| %>
+        <% has_website = experience.website_url.present? %>
+        <div class="panel panel-default d-flex flex-row font-size-14 pt-5 " data_id =" <% experience.id %> ">
+            <span class="badge badge-light h-100 p-1 mr-2 border">
+                <% if has_website %>
+                <img src="https://www.google.com/s2/favicons?domain=<%= experience.website_url %>" />
+                <% else %>
+                <i class="fas fa-md fa-building text-light-2"></i>
+                <% end %>
+            </span>
 
-      <div class="d-flex flex-row font-size-14 pt-5">
-        <span class="badge badge-light h-100 p-1 mr-2 border">
-          <% if has_website %>
-            <img src="https://www.google.com/s2/favicons?domain=<%= experience.website_url %>" />
-          <% else %>
-            <i class="fas fa-md fa-building text-light-2"></i>
-          <% end %>
-        </span>
+            <div class="ml-2 pb-5 w-100 <%= (index == experiences.size - 1) ? '' : 'border-bottom' %>">
+                <h6 class="font-weight-bold"><%= experience.title %></h6>
+                <h6 class="mb-1"><%= experience.company %></h6>
+                <% if experience.location.present? %>
+                <span><%= t('content.main.cv.show.experience.location', location: experience.location) %></span><br>
+                <% end %>
+                <% if has_website %>
+                <p><a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
+                <% end %>
+                <p><%= work_period(experience.started_on, experience.ended_on) %></p>
+                <p class="mb-0">Core Competencies: </p>
+                <span><%= experience.description.presence %></span>
+            </div>
 
-        <div class="ml-2 pb-5 w-100 <%= (index == experiences.size - 1) ? '' : 'border-bottom' %>" >
-          <h6 class="font-weight-bold"><%= experience.title %></h6>
-          <h6 class="mb-1"><%= experience.company %></h6>
-          <% if experience.location.present? %>
-            <span><%= t('content.main.cv.show.experience.location', location: experience.location) %></span><br>
-          <% end %>
-          <% if has_website %>
-            <p><a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
-          <% end %>
-          <p><%= work_period(experience.started_on, experience.ended_on) %></p>
-          <p class="mb-0">Core Competencies: </p>
-          <span><%= experience.description.presence %></span>
-        </div>
-
-        <% if @cv_edit_controls %>
-          <%= link_to edit_cv_experience_path(experience), remote: true do %>
+            <% if @cv_edit_controls %>
+            <%= link_to edit_cv_experience_path(experience), remote: true do %>
             <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="icon-pencil"></i></span>
-          <% end %>
+            <% end %>
 
-          <%= link_to cv_experience_path(experience), method: :delete, data: { confirm: t('confirmation') } do %>
+            <%= link_to cv_experience_path(experience), method: :delete, data: { confirm: t('confirmation') } do %>
             <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="fas fa-trash-alt"></i></span>
-          <% end %>
+            <% end %>
+            <% end %>
+        </div>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+</div>
 <% end %>

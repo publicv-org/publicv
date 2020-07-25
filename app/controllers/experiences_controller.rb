@@ -35,12 +35,11 @@ class ExperiencesController < ApplicationController
 
   def update_positions
     # TODO: Update experiences positions
-    if params[:data].present?
-         params[:data]&.each do |id|
-         Experience.find(value[:id]).update(:position: position + 1)
-        end
-    end 
-    head :ok
+    params[:order].each do |key,value|
+      Experience.find(value[:id]).update_attribute(:position,value[:position])
+    end
+    render :nothing => true
+
   end
 
   def destroy
@@ -63,3 +62,4 @@ class ExperiencesController < ApplicationController
     params.require(:experience).permit(:company, :description, :ended_on, :location, :started_on, :title, :website_url)
   end
 end
+
