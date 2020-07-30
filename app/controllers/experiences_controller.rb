@@ -34,12 +34,14 @@ class ExperiencesController < ApplicationController
   end
 
   def update_positions
-    # TODO: Update experiences positions
-    params[:order].each do |key,value|
-      Experience.find(value[:id]).update_attribute(:position,value[:position])
+    params[:experience].each_with_index do |exp_id, index|
+      experience = Experience.find_by(id: exp_id)
+      experience.update!(position: index) if experience
     end
-    render :nothing => true
-    
+
+    @cv.update(custom_experience_sort: true) if params[:experience].present?
+
+    head :ok
   end
 
   def destroy
@@ -61,9 +63,4 @@ class ExperiencesController < ApplicationController
   def experience_params
     params.require(:experience).permit(:company, :description, :ended_on, :location, :started_on, :title, :website_url)
   end
-<<<<<<< HEAD
 end
-
-=======
-end
->>>>>>> b29bc292cd854a34d767a39c620b89bd3a40c388
