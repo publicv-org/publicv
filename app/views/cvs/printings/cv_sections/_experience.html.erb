@@ -1,4 +1,4 @@
-<% experiences = @cv.experiences.chronological_order %>
+<% experiences = @cv.custom_experience_sort ? @cv.experiences.by_position :  @cv.experiences.chronological_order %>
 
 <% if experiences.present? %>
   <div class="border-top py-5 px-3 pl-md-6">
