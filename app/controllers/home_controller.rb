@@ -13,8 +13,9 @@ class HomeController < ApplicationController
   end
 
   # Note: Distance is in miles
-  def near_by_cvs
-    @cvs = Location.within(500, :origin => [ @coordinates[1], @coordinates[0]  ])
+  def near_by_cvs  
+     @loc_id = Location.within(311, :units => :kms, :origin => [@coordinates[1], @coordinates[0]])
+     @cvs =  Cv.where(:id => @loc_id.ids)
   end
 
   private

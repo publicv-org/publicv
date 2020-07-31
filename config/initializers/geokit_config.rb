@@ -1,5 +1,5 @@
 # These defaults are used in Geokit::Mappable.distance_to and acts_as_mappable
-Geokit::default_units = :kms # others :kms, :nms, :meters , :miles
+Geokit::default_units = :miles # others :kms, :nms, :meters
 Geokit::default_formula = :sphere
 
 # This is the timeout value in seconds to be used for calls to the geocoder web
