@@ -29,9 +29,11 @@ gem 'mailgun-ruby', '~>1.2.0'
 gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary-edge'
+gem 'wkhtmltopdf-binary'
+# distance calculation
+gem 'geokit-rails'
 
-group :development do
+group :development do 
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
@@ -66,3 +68,4 @@ group :production do
   gem 'lograge'
   gem 'wkhtmltopdf-heroku'
 end
+
