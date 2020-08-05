@@ -19,11 +19,115 @@ window.initMap = function() {
     //Add Navigation controls to the map to the top-right corner of the map
     nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'top-left');
+
+    //Adding code for cluster**********
+
+    map.on('load', function() {
+      
+      map.addSource('cluster_markers', {
+          type: 'geojson',
+          data: allrecords(),
+          cluster: true,
+          clusterMaxZoom: 14, // Max zoom to cluster points on
+          clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+      });
+
+      map.addLayer({
+          id: 'clusters',
+          type: 'circle',
+          source: 'cluster_markers',
+          filter: ['has', 'point_count'],
+          paint: {
+                 'circle-color': [
+                  'step',
+                  ['get', 'point_count'],
+                  '#51bbd6',
+                  100,
+                  '#f1f075',
+                  750,
+                  '#f28cb1'
+              ],
+              'circle-radius': [
+                  'step',
+                  ['get', 'point_count'],
+                  20,
+                  100,
+                  30,
+                  750,
+                  40
+              ]
+          }
+      });
+
+      map.addLayer({
+          id: 'cluster-count',
+          type: 'symbol',
+          source: 'cluster_markers',
+          filter: ['has', 'point_count'],
+          layout: {
+              'text-field': '{point_count_abbreviated}',
+              'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+              'text-size': 12
+          }
+      });
+
+      map.addLayer({
+        id: 'unclustered-point',
+        type: 'circle',
+        source: 'cluster_markers',
+        filter: ['!', ['has', 'point_count']],
+        paint: {
+            'circle-color': '#11b4da',
+            'circle-radius': 4,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#fff'
+        }
+    });
+
+
+
+      // inspect a cluster on click
+      map.on('click', 'clusters', function(e) {
+          var features = map.queryRenderedFeatures(e.point, {
+              layers: ['clusters']
+          });
+          var clusterId = features[0].properties.cluster_id;
+          map.getSource('cluster_markers').getClusterExpansionZoom(
+              clusterId,
+              function(err, zoom) {
+                  if (err) return;
+
+                  map.easeTo({
+                      center: features[0].geometry.coordinates,
+                      zoom: zoom
+                  });
+              }
+          );
+      });
+
+      // When a click event occurs on a feature in
+      // the unclustered-point layer, open a popup at
+      // the location of the feature, with
+      // description HTML from its properties.
+      map.on('click', 'unclustered-point', function(e) {
+        loadMarkersFromPage() // Load search results from home page if any
+
+    });
+     
+
+      map.on('mouseenter', 'clusters', function() {
+          map.getCanvas().style.cursor = 'pointer';
+      });
+      map.on('mouseleave', 'clusters', function() {
+          map.getCanvas().style.cursor = '';
+      });
+  });
+
+//Adding code for cluster************
   });
 
   if (isHomePage()) map.scrollZoom.disable();
 
-  loadMarkersFromPage() // Load search results from home page if any
   multiTouchSupport() // disable drapPan for mobile on single touch
 };
 
@@ -100,6 +204,10 @@ function mapCenterCoordinates(){
 
 function isHomePage(){
   return location.pathname == "/"; // Equals true if we're at the root
+}
+
+function allrecords(){
+  return window.searchResultsList;
 }
 
 $(document).on('turbolinks:load', () => {
