@@ -238,4 +238,5 @@
 <script type="text/javascript">
   window.currentLatLng = <%= @coordinates %>;
   window.searchResultsList = <%= raw @formatted_results.to_json %>
+  window.searchClusterResultsList = <%= raw @cluster_results.to_json %>
 </script>

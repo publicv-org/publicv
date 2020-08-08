@@ -14,12 +14,33 @@ class SearchesService
     end.compact
   end
 
+  def cluster_coords_list
+    @search_results.map do |result|
+      next if result.locations.empty?
+
+      location = cluster_location_coordinates(result.locations.first)
+      formatted_cluster(location)
+    end.compact
+  end
+
   private
 
   def formatted_element(name, location)
     {
       name: name,
       location: location
+    }
+  end
+
+  def formatted_cluster(location)
+    {
+       "geometry": location 
+    }
+  end
+
+  def cluster_location_coordinates(location)
+    {
+      coordinates: [location.longitude,location.latitude]
     }
   end
 

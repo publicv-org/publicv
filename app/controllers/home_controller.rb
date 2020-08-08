@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     near_by_cvs # Fetch cvs near by to user current location within radius of 500 Km
     @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
     @formatted_results = SearchesService.new(@cvs).coordinates_list
+    @cluster_results = SearchesService.new(@cvs).cluster_coords_list
   end
 
   def set_current_location
@@ -13,9 +14,9 @@ class HomeController < ApplicationController
   end
 
   # Note: Distance is in miles
-  def near_by_cvs  
-     @loc_id = Location.within(311, :units => :kms, :origin => [@coordinates[1], @coordinates[0]])
-     @cvs =  Cv.where(:id => @loc_id.ids)
+  def near_by_cvs
+    @loc_id = Location.within(311, :units => :kms, :origin => [@coordinates[1], @coordinates[0]]) 
+    @cvs =  Cv.where(:id => @loc_id.ids)
   end
 
   private
