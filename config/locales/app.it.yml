@@ -130,7 +130,7 @@ it:
         message: "Cosa vorresti chiedere?"
         phone: "Numero di telefono per ricevere la risposta"
         email: "Email per la risposta"
-        accept_html: "Dichiaro di accettare i <a href="/legal/terms">termini del servizio</a> e l'<a href='/legal/privacy-policy'>informativa sulla privacy</a>."
+        accept_html: "Dichiaro di accettare i <a href='/legal/terms'>termini del servizio</a> e l'<a href='/legal/privacy-policy'>informativa sulla privacy</a>."
       confirm:
         delete_account: "Sei sicuro, Vuoi eliminare il tuo account da PubliCV ?"
   layouts:

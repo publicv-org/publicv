@@ -1,20 +1,18 @@
+---
 it:
   activerecord:
     attributes:
       cv:
-        date_of_birth: Data di nascita
         birth_place: Città di nascita
+        date_of_birth: Data di nascita
         gender: Il tuo genere
         headshot: Una tua foto professionale
-
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
         restrict_dependent_destroy:
-          has_one: Il record non può essere cancellato perchè esiste un %{record}
-            dipendente
-          has_many: Il record non può essere cancellato perchè esistono %{record}
-            dipendenti
+          has_many: Il record non può essere cancellato perchè esistono %{record} dipendenti
+          has_one: Il record non può essere cancellato perchè esiste un %{record} dipendente
   date:
     abbr_day_names:
     - dom
@@ -25,7 +23,7 @@ it:
     - ven
     - sab
     abbr_month_names:
-    -
+    - 
     - gen
     - feb
     - mar
@@ -51,7 +49,7 @@ it:
       long: "%d %B %Y"
       short: "%d %b"
     month_names:
-    -
+    - 
     - gennaio
     - febbraio
     - marzo
@@ -83,36 +81,36 @@ it:
         one: circa 1 anno
         other: circa %{count} anni
       half_a_minute: mezzo minuto
-      less_than_x_seconds:
-        one: meno di un secondo
-        other: meno di %{count} secondi
       less_than_x_minutes:
         one: meno di un minuto
         other: meno di %{count} minuti
+      less_than_x_seconds:
+        one: meno di un secondo
+        other: meno di %{count} secondi
       over_x_years:
         one: oltre un anno
         other: oltre %{count} anni
-      x_seconds:
-        one: 1 secondo
-        other: "%{count} secondi"
-      x_minutes:
-        one: 1 minuto
-        other: "%{count} minuti"
       x_days:
         one: 1 giorno
         other: "%{count} giorni"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minuti"
       x_months:
         one: 1 mese
         other: "%{count} mesi"
+      x_seconds:
+        one: 1 secondo
+        other: "%{count} secondi"
       x_years:
         one: 1 anno
         other: "%{count} anni"
     prompts:
-      second: Secondi
-      minute: Minuto
-      hour: Ora
       day: Giorno
+      hour: Ora
+      minute: Minuto
       month: Mese
+      second: Secondi
       year: Anno
   errors:
     format: "%{attribute} %{message}"
