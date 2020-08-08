@@ -1,4 +1,3 @@
-
 let map, nav, center;
 let markers = [];
 
@@ -110,7 +109,7 @@ function unclusteredPointLayer() {
     filter: ['!', ['has', 'point_count']],
     paint: {
       'circle-color': '#11b4da',
-      'circle-radius': 4,
+      'circle-radius': 7,
       'circle-stroke-width': 1,
       'circle-stroke-color': '#fff'
     }
@@ -137,42 +136,13 @@ function clusterOnClick() {
   });
 }
 
-
 function cluster_data() {
   let all_data = {
     "type": "FeatureCollection",
-    "features": [
-
-      { "geometry": { "coordinates": [75.851601, 30.9090157] } },
-
-      { "geometry": { "coordinates": [85.1235252, 25.6093239] } },
-
-      { "geometry": { "coordinates": [77.2219388, 28.6517178] } },
-
-      { "geometry": { "coordinates": [76.0484147, 30.450764] } },
-
-      { "geometry": { "coordinates": [80.9346001, 26.8381] } }
-
-    ]
+    "features": loadClusterMarkerFromPage()
   }
-
   return all_data
 }
-
-window.generateClusterMarkers = function (searchClusterResultsList) {
-  searchClusterResultsList.forEach(entry => {
-    let coordinates = Object.values(entry.location); // coordinates
-    let el = document.createElement('div'); // creating marker
-    el.className = 'marker';
-    markers.push(
-      new mapboxgl.Marker(el)
-        .setLngLat(coordinates)
-        .addTo(map)
-    );
-
-  });
-  centerMap();
-};
 
 window.generateMarkers = function (searchResultsList) {
   clearMarkers();
@@ -242,7 +212,7 @@ function loadMarkersFromPage() {
 }
 
 function loadClusterMarkerFromPage() {
-  if (window.searchClusterResultsList.length > 0) generateClusterMarkers(window.searchClusterResultsList)
+  return window.searchClusterResultsList
 
 }
 
