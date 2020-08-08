@@ -55,15 +55,11 @@
               </select>
             </div>
           </div>
-
         <% end %>
       </div>
     </nav>
   </div>
-
-  <% if cv_show_page? %>
-    <%= render partial: 'cvs/topbar' %>
-  <% end %>
+  <%= render partial: 'cvs/topbar_controls' if cv_show_page? && current_user == @cv&.user %>
 </div>
 <!-- Header Container / End -->
 <%= render partial: 'layouts/shared/js_vars' %>

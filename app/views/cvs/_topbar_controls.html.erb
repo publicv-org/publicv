@@ -32,8 +32,6 @@
 
         <% elsif @user.present? && params[:preview] == 't' %> <!-- When CV owner is in preview mode ====== -->
           <%= link_to 'Exit preview', cv_section_path(current_user.subdomain), class: 'btn btn-primary mx-2' %>
-        <% else %> <!-- When CV public view mode ====== -->
-          <%= link_to "Contact #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
         <% end %>
       </div>
     </div>
