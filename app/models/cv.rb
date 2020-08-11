@@ -13,7 +13,7 @@ class Cv < ApplicationRecord
 
   validates :about, :authorization_statement, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
-  delegate :email, :tel, to: :user
+  delegate :email, :tel, :subdomain, to: :user
 
   accepts_nested_attributes_for :user
 

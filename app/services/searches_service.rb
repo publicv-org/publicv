@@ -8,18 +8,20 @@ class SearchesService
     @search_results.map do |result|
       next if result.locations.empty?
 
-      name = "#{result.user.first_name} #{result.user.last_name}"
+      name = result.abbr_name
+      subdomain = result.subdomain
       location = location_coordinates(result.locations.first)
-      formatted_element(name, location)
+      formatted_element(name, location, subdomain)
     end.compact
   end
 
   private
 
-  def formatted_element(name, location)
+  def formatted_element(name, location, subdomain)
     {
       name: name,
-      location: location
+      location: location,
+      subdomain: subdomain
     }
   end
 

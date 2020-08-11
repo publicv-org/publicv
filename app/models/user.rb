@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
+  before_validation :downcase_subdomain
+
   validates :first_name, :last_name, :subdomain, presence: true
   validates :subdomain, uniqueness: true
   validates :subdomain, format: {
@@ -14,7 +16,6 @@ class User < ApplicationRecord
   }
 
   after_initialize :prepare_blank_cv, if: :new_record?
-  before_validation :downcase_subdomain
 
   accepts_nested_attributes_for :cv
   accepts_nested_attributes_for :current_location, reject_if: proc { |attributes| attributes['id'].blank? && attributes['original_address'].blank? }

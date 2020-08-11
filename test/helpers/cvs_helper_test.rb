@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class CvsHelperTest < ActionView::TestCase
-
   setup do
     @started_on = Date.new(2014, 1, 1)
     @ended_on = Date.new(2018, 1, 1)

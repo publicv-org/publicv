@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class SearchesServiceTest < ActionView::TestCase
-
   test 'coordinates_list with no search results' do
     full_text_search_results = []
     locations_list = []
@@ -15,14 +14,14 @@ class SearchesServiceTest < ActionView::TestCase
     name = 'John Williams'
     full_text_search_results = [cvs(:john_cv)]
     locations_list = [
-                        {
-                          name: name,
-                          location: {
-                            lat: latitude,
-                            lng: longitude
-                          }
-                        }
-                     ]
+      {
+        name: name,
+        location: {
+          lat: latitude,
+          lng: longitude
+        }
+      }
+    ]
 
     assert_equal locations_list, SearchesService.new(full_text_search_results).coordinates_list
   end

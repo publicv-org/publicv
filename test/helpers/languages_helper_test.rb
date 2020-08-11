@@ -7,12 +7,12 @@ class LanguagesHelperTest < ActionView::TestCase
 
   test 'cefr_level_options should return a hash with the options' do
     cefr_options = {
-        a1: 'A1 - Beginner',
-        a2: 'A2 - Elementary',
-        b1: 'B1 - Intermediate',
-        b2: 'B2 - Upper intermediate',
-        c1: 'C1 - Advanced',
-        c2: 'C2 - Proficiency'
+      a1: 'A1 - Beginner',
+      a2: 'A2 - Elementary',
+      b1: 'B1 - Intermediate',
+      b2: 'B2 - Upper intermediate',
+      c1: 'C1 - Advanced',
+      c2: 'C2 - Proficiency'
     }
 
     assert_equal cefr_options, cefr_level_options

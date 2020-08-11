@@ -31,8 +31,8 @@ it:
         other: Utenti
   devise:
     confirmations:
-      form_label: 'Resend confirmation instructions'
-      button: 'Resend confirmation instructions'
+      form_label: 'Rimandami le istruzioni per confermare'
+      button: 'Rimandami le istruzioni per confermare'
       confirmed: Il tuo account è stato correttamente confermato.
       new:
         resend_confirmation_instructions: Invia di nuovo le istruzioni per la conferma
@@ -79,8 +79,8 @@ it:
       failure: Non è stato possibile autorizzarti da %{kind} perchè "%{reason}".
       success: Autorizzato con successo dall'account %{kind}.
     passwords:
-      sending_button: "Sending..."
-      send_button: "Send instructions"
+      sending_button: "Invio in corso..."
+      send_button: "Mandami le istruzioni"
       change_form_label: 'Cambia la tua passowrd'
       confirm_password: 'Conferma la tua password'
       edit:

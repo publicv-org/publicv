@@ -35,7 +35,7 @@ window.generateMarkers = function(searchResultsList) {
       el.className = 'marker';
 
       let popup = new mapboxgl.Popup()
-        .setHTML('<b>'+entry.name+'</b>'); // Popup with user name
+        .setHTML('<a href="/cv/'+entry.subdomain+'">'+entry.name+'</a>'); // Popup with user name
 
       markers.push(
         new mapboxgl.Marker(el)
