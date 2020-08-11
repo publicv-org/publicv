@@ -7,10 +7,11 @@ window.initMap = function () {
   console.log(center)
 
   $('#map').each((_, mapElement) => {
+    locationiqKey = 'pk.324252efd4cd510511b165d1d5d0f24b';
     map = new mapboxgl.Map({
       container: mapElement,
       attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-      style: unwired.getLayer("streets"), //get Unwired's style template
+      style: 'https://tiles.locationiq.com/v2/streets/vector.json?key='+locationiqKey, //get Unwired's style template
       maxZoom: 11,
       zoom: 11,
       center: center
@@ -32,7 +33,6 @@ window.initMap = function () {
         clusterMaxZoom: 14, // Max zoom to cluster points on
         clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
       });
-
 
       clusterLayer() //cluster make circle on the base of distance
       clusterCountLayer()  // showing the number on cluster
@@ -77,11 +77,11 @@ function clusterLayer() {
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        20,
+        25,
         100,
-        30,
+        35,
         750,
-        40
+        45
       ]
     }
   });
@@ -96,7 +96,7 @@ function clusterCountLayer() {
     layout: {
       'text-field': '{point_count_abbreviated}',
       'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      'text-size': 12
+      'text-size': 20
     }
   });
 }
@@ -109,7 +109,7 @@ function unclusteredPointLayer() {
     filter: ['!', ['has', 'point_count']],
     paint: {
       'circle-color': '#11b4da',
-      'circle-radius': 7,
+      'circle-radius': 10,
       'circle-stroke-width': 1,
       'circle-stroke-color': '#fff'
     }
@@ -203,9 +203,7 @@ function multiTouchSupport() {
 }
 
 //Add your Unwired Maps Access Token here (not the API token!)
-function setUnwiredApiToken(token) {
-  unwired.key = mapboxgl.accessToken = token;
-}
+function setUnwiredApiToken(token) {}
 
 function loadMarkersFromPage() {
   if (window.searchResultsList.length > 0) generateMarkers(window.searchResultsList)
