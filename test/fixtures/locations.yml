@@ -1,5 +1,5 @@
 new_york:
-  user_id: 1
+  user: john
   original_address: New York, NY
   radius: 10
   city: New York

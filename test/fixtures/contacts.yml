@@ -1,4 +1,4 @@
 contact:
-  user_id: 1
+  user: john
   name: <%= Faker::Name.name %>
   email: <%= Faker::Internet.email %>

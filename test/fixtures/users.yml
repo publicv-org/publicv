@@ -1,5 +1,4 @@
-user_john:
-  id: 1
+john:
   first_name: John
   last_name: Williams
   email: john.williams@example.com
@@ -8,7 +7,6 @@ user_john:
   confirmed_at: <%= Time.zone.now %>
 
 search_user:
-  id: 2
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>

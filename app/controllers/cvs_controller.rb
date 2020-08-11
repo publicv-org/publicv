@@ -74,7 +74,7 @@ class CvsController < ApplicationController
   end
 
   def subdomain
-    # this may be needed for tests: return params[:subdomain] if Rails.env.test?
+    return params[:subdomain] if request.subdomain == 'www'
     request.subdomain.presence || params[:subdomain]
   end
 end

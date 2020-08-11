@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user = users(:user_john)
+    @user = users(:john)
   end
 
   test 'first_name should be present' do

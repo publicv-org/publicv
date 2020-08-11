@@ -11,7 +11,7 @@ class SearchesServiceTest < ActionView::TestCase
   test 'coordinates_list with location/s available' do
     latitude = 40.7143528
     longitude = -74.0059731
-    name = 'John Williams'
+    name = 'John W.'
     full_text_search_results = [cvs(:john_cv)]
     locations_list = [
       {
@@ -19,7 +19,8 @@ class SearchesServiceTest < ActionView::TestCase
         location: {
           lat: latitude,
           lng: longitude
-        }
+        },
+        subdomain: 'johnwilliams'
       }
     ]
 

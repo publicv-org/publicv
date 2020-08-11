@@ -2,7 +2,7 @@
 
 # class LocationsControllerTest < ActionDispatch::IntegrationTest
 #   setup do
-#     @user = users(:user_john)
+#     @user = users(:john)
 #     sign_in(@user)
 #   end
 

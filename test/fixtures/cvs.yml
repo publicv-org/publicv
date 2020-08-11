@@ -1,13 +1,12 @@
 john_cv:
-  id: 1
+  user: john
+  published: true
   about: There is not that much to say about me. I am a friendly person, and I love to code!
   birth_date: <%= Date.new(1995, 0o5, 25) %>
   future_plans: First I would like to finish my studies, then find a good and stable job.
   interests: IT, cooking, reading
   skills: Cooking, skiing, climbing
   working_skills: Programming
-  user_id: 1
 
 search_user_cv:
-  id: 2
-  user_id: 2
+  user: search_user
