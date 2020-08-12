@@ -29,6 +29,5 @@ EN_SERVER_HOST: 'host URL for en locale'
 IT_SERVER_HOST: 'host URL for it locale'
 
 # Recaptcha
-RECAPTCHA_SITE_KEY_V3: "recaptcha public key"
-RECAPTCHA_SECRET_KEY_V3: "recaptcha secret key"
-RECAPTCHA_MINIMUM_SCORE: "0.5"
+RECAPTCHA_SITE_KEY_V2: "recaptcha public key"
+RECAPTCHA_SECRET_KEY_V2: "recaptcha secret key"

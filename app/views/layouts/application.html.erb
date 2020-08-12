@@ -11,7 +11,6 @@
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' %>
     <%= favicon_link_tag asset_pack_path('icons/favicon.png') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "https://www.google.com/recaptcha/api.js?render=#{ENV['RECAPTCHA_SITE_KEY_V3']}" %>
     <%= yield :header %>
   </head>
   <body>

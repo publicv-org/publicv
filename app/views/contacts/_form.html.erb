@@ -34,13 +34,11 @@
           </div>
         </div>
       </div>
-      <div class="recaptcha-tag">
-        <%= recaptcha_v3(action: 'contact_create', turbolinks: true) %>
-      </div>
+
       <div class="row">
-        <div class="col-12 text-right">
+        <div class="col-12 d-flex justify-content-end">
           <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
-          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary', id: 'contact-save', disabled: true %>
+          <%= invisible_recaptcha_tags text: t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary', id: 'contact-save', disabled: true %>
         </div>
       </div>
   </div>
