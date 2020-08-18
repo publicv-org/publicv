@@ -11,7 +11,8 @@ class ContactsController < ApplicationController
     if recaptcha_passed && @contact.save
       redirect_to cv_section_path(@user.subdomain)
     else
-      render 'contacts/errors'
+      flash[:alert] = @contact.errors
+      redirect_to cv_section_path(@user.subdomain)
     end
   end
 
