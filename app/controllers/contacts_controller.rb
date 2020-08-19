@@ -8,17 +8,10 @@ class ContactsController < ApplicationController
   def create
     recaptcha_passed = verify_recaptcha(model: @contact)
     @contact = @user.contacts.build(contact_params)
-    if recaptcha_passed && @contact.save
-      redirect_to cv_section_path(@user.subdomain)
-    else
-      if @contact.errors.present? && recaptcha_passed
-          flash[:alert] = @contact.errors.full_messages
-          redirect_to cv_section_path(@user.subdomain)
-      else
-        flash[:alert] = "Recaptcha not verified"
-        redirect_to cv_section_path(@user.subdomain)
-      end
+    unless recaptcha_passed && @contact.save
+      flash[:alert] = @contact.errors.present? ? @contact.errors.full_messages.join(', ') : t('content.main.recaptcha.failure')
     end
+    redirect_to cv_section_path(@user.subdomain)
   end
 
   private

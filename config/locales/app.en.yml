@@ -133,6 +133,8 @@ en:
         accept_html: "I declare to accept the <a href='/legal/terms'>terms of service</a> and the <a href='/legal/privacy-policy'>privacy policy</a>."
       confirm:
         delete_account: "Are you sure, You want to delete your account from PubliCV ?"
+      recaptcha:
+        failure: 'Unable to verify recaptcha'
   layouts:
     nav:
       home: "Home"
