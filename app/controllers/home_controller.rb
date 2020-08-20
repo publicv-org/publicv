@@ -2,11 +2,9 @@ class HomeController < ApplicationController
   before_action :set_current_location, only: [:index]
 
   def index
-    @loc_id = Location.within(311, :units => :kms, :origin => [@coordinates[1], @coordinates[0]])
-    @cvs =  Cv.published.where(:id => @loc_id.ids)
-    @featured_cvs = Cv.published.headshot_present.order(updated_at: :desc).limit(4)
+    @featured_cvs = Cv.published.headshot_present.order(updated_at: :desc)
     @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
-    @formatted_results = SearchesService.new(@cvs).coordinates_list
+    @formatted_results = SearchesService.new(@featured_cvs).coordinates_list
   end
 
   def set_current_location

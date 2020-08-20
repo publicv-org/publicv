@@ -1,2 +1,2 @@
 $("#search-results").html("<%= escape_javascript(render :partial => 'results') %>");
-window.generateMarkers(<%= raw @formatted_results.to_json %>)
+window.generateClusters(<%= raw @formatted_results.to_json %>)
