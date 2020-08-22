@@ -78,6 +78,13 @@ class Cv < ApplicationRecord
     gender == 'f'
   end
 
+  def update_cv_status(input)
+    if input == 2
+      self.published = false
+      self.save
+    end
+  end
+
   private
 
   def set_authorization_statement

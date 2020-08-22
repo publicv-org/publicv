@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :call_logs, dependent: :destroy
+  has_many :sms_logs, dependent: :destroy
+
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
@@ -28,6 +31,18 @@ class User < ApplicationRecord
     "http://#{cv_public_domain}"
   end
 
+  def this_month_sms_logs
+    self.sms_logs.where(created_at: Date.today.beginning_of_month..Date.today.end_of_month)
+  end
+
+  def this_month_outgoing_sms_logs
+    this_month_sms_logs.where.not(sms_status: ["received"])
+  end
+
+  def this_month_incomming_sms_logs
+    this_month_sms_logs.where(sms_status: "received")
+  end
+
   private
 
   def prepare_blank_cv
@@ -37,4 +52,5 @@ class User < ApplicationRecord
   def downcase_subdomain
     self.subdomain = subdomain.downcase
   end
+
 end

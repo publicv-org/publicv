@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_075518) do
+ActiveRecord::Schema.define(version: 2020_08_01_132028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "call_logs", force: :cascade do |t|
+    t.string "call_sid"
+    t.string "account_sid"
+    t.string "call_status"
+    t.string "from"
+    t.string "to"
+    t.string "api_version"
+    t.string "forwarded_from"
+    t.string "direction"
+    t.string "from_city"
+    t.string "from_state"
+    t.string "from_zip"
+    t.string "from_country"
+    t.string "to_city"
+    t.string "to_state"
+    t.string "to_zip"
+    t.string "to_country"
+    t.string "call_duration"
+    t.string "call_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_call_logs_on_user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "title"
@@ -103,6 +128,30 @@ ActiveRecord::Schema.define(version: 2020_07_03_075518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "sms_logs", force: :cascade do |t|
+    t.string "sms_sid"
+    t.string "account_sid"
+    t.string "sms_status"
+    t.string "from"
+    t.string "to"
+    t.string "body"
+    t.string "api_version"
+    t.string "forwarded_from"
+    t.string "direction"
+    t.string "from_city"
+    t.string "from_state"
+    t.string "from_zip"
+    t.string "from_country"
+    t.string "to_city"
+    t.string "to_state"
+    t.string "to_zip"
+    t.string "to_country"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sms_logs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

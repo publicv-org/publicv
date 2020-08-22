@@ -31,6 +31,9 @@ gem 'recaptcha'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 
+gem 'twilio-ruby'
+gem 'sidekiq'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

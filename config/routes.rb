@@ -4,6 +4,12 @@ class Subdomain
   end
 end
 
+class ActionDispatch::Routing::Mapper
+  def draw(routes_name)
+    instance_eval(File.read(Rails.root.join("config/#{routes_name}.rb")))
+  end
+end
+
 Rails.application.routes.draw do
   constraints(Subdomain) do
     get '/', to: 'cvs#show'
@@ -11,6 +17,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   # Static pages
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   get 'legal/privacy-policy', to: 'legal#privacy'
   get 'legal/cookie-policy', to: 'legal#cookie'
   # TODO: get '/about', to: 'home#about'
@@ -25,7 +33,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-
+  draw :routes_twilio
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
     resources :educations, except: %i[index show]
