@@ -6,3 +6,21 @@ john_experience:
   started_on: <%= Date.new(2007) %>
   title: Web Developer
   cv: john_cv
+
+john_experience_2:
+  company: <%= Faker::Company.name %>
+  description: <%= Faker::Lorem.sentence %>
+  ended_on: <%= Date.new(2014) %>
+  location: Zurich, Switzerland
+  started_on: <%= Date.new(2011) %>
+  title: <%= Faker::Job.title %>
+  cv: john_cv
+
+john_experience_3:
+  company: <%= Faker::Company.name %>
+  description: <%= Faker::Lorem.sentence %>
+  ended_on: <%= Date.new(2015) %>
+  location: Zurich, Switzerland
+  started_on: <%= Date.new(2014) %>
+  title: <%= Faker::Job.title %>
+  cv: john_cv

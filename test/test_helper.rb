@@ -14,6 +14,7 @@ Capybara.register_driver :selenium_chrome_headless do |app|
 end
 
 Capybara.save_path = Rails.root.join('tmp', 'capybara')
+Capybara.default_max_wait_time = 5
 
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,

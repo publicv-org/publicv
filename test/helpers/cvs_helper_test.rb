@@ -13,8 +13,10 @@ class CvsHelperTest < ActionView::TestCase
 
   test 'should return period from the input date to present, with only started_on provided' do
     @ended_on = nil
-    assert_equal '2014 - Present', study_period(@started_on, @ended_on)
-    assert_equal 'January 2014 - Present', work_period(@started_on, @ended_on)
+    assert_equal t('content.main.cv.show.entries.on_going', started_on: 2014),
+                 study_period(@started_on, @ended_on)
+    assert_equal t('content.main.cv.show.entries.on_going', started_on: 'January 2014'),
+                 work_period(@started_on, @ended_on)
   end
 
   test 'should return an empty string, with only ended_on provided' do

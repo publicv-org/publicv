@@ -64,17 +64,20 @@ class CvsController < ApplicationController
             Cv.find(params[:id])
           else
             current_user.cv
-    end
+          end
   end
 
   def cv_params
-    params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans, :gender, :headshot, :interests, :published,
-                               :section, :skills, :working_skills, :learning_skills, :remove_headshot, :authorization_statement, :publish_last_name,
-                               user_attributes: [:id, :first_name, :last_name, :tel, current_location_attributes: %i[id original_address]])
+    params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans,
+                               :gender, :headshot, :interests, :published, :section, :skills, :working_skills,
+                               :learning_skills, :remove_headshot, :authorization_statement, :publish_last_name,
+                               user_attributes: [:id, :first_name, :last_name, :tel,
+                                                 current_location_attributes: %i[id original_address]])
   end
 
   def subdomain
-    return params[:subdomain] if request.subdomain == 'www'
+    return params[:subdomain] unless ENV['SERVER_ENV'] == 'production'
+
     request.subdomain.presence || params[:subdomain]
   end
 end

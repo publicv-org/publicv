@@ -13,6 +13,8 @@ window.$ = jQuery;
 Rails.start();
 Turbolinks.start();
 
+import 'jquery-ui-dist/jquery-ui';
+
 $(function () {
-    console.log('Hello World from Webpacker');
+  console.log('Hello World from Webpacker');
 });

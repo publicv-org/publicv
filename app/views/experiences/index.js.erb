@@ -2,3 +2,5 @@
 $("<%= modalId %>").find('.alert.alert-danger').empty().addClass('d-none')
 $("<%= modalId %>").modal('hide');
 $(".experience-section").html("<%= j render 'cvs/cv_sections/experience' %>");
+
+enableSortable();

@@ -27,8 +27,29 @@ function handleCount(elem, count){
   }
 }
 
+window.enableSortable = function(){
+  $('#sortable, #sortable-edu').sortable({
+      axis: 'y',
+      stop: function (event, ui) {
+        let data = $(this).sortable('serialize');
+        let dataURL = this.getAttribute('data-url');
+
+        console.log(data); // serialize data
+
+        $.ajax({
+            data: data,
+            type: 'POST',
+            url: dataURL
+        });
+      }
+  });
+
+  $('#sortable, #sortable-edu').disableSelection();
+}
+
 $(document).on('turbolinks:load', () => {
   handleSelect();
+  window.enableSortable();
 
   $(document).on('input', '.limit-desc', function(){
     handleCount(this, this.value.length);

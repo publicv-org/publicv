@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :timeoutable, :trackable, :validatable, :confirmable
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable,
+         :timeoutable, :trackable, :validatable, :confirmable
 
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
@@ -18,10 +19,17 @@ class User < ApplicationRecord
   after_initialize :prepare_blank_cv, if: :new_record?
 
   accepts_nested_attributes_for :cv
-  accepts_nested_attributes_for :current_location, reject_if: proc { |attributes| attributes['id'].blank? && attributes['original_address'].blank? }
+  accepts_nested_attributes_for :current_location, reject_if: proc { |attributes|
+                                                                attributes['id'].blank? &&
+                                                                  attributes['original_address'].blank?
+                                                              }
 
   def cv_public_domain
-    domain_suffix = locale.present? ? (locale == 'en' ? 'org' : locale) : 'org'
+    domain_suffix = if locale.present?
+                      (locale == 'en' ? 'org' : locale)
+                    else
+                      'org'
+                    end
     "#{subdomain}.publicv.#{domain_suffix}"
   end
 

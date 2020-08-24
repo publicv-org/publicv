@@ -28,8 +28,12 @@ Rails.application.routes.draw do
 
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
-    resources :educations, except: %i[index show]
-    resources :experiences, except: %i[index show]
+    resources :educations, except: %i[index show] do
+      post :update_positions, on: :collection
+    end
+    resources :experiences, except: %i[index show] do
+      post :update_positions, on: :collection
+    end
     resources :languages, except: %i[index show]
   end
   resources :cvs, only: [:show] do

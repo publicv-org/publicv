@@ -1,14 +1,21 @@
-require: rubocop-rspec
-
 Rails:
   Enabled: true
 
 Rails/SkipsModelValidations:
-  Exclude:
-  - 'spec/**/*.rb'
+  Enabled: false
 
 Metrics/LineLength:
   Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 33
+
+Style/WordArray:
+  EnforcedStyle: percent
+  MinSize: 8
 
 Style/Documentation:
   Enabled: false
@@ -28,15 +35,11 @@ Metrics/BlockLength:
   Exclude:
   - 'spec/**/*.rb'
 
-RSpec/MultipleExpectations:
-  Exclude:
-  - 'spec/system/**/*'
-  - 'spec/requests/**/*'
+Metrics/ClassLength:
+  Max: 250
 
-RSpec/ExampleLength:
-  Exclude:
-  - 'spec/system/**/*'
-  - 'spec/requests/**/*'
+Metrics/ModuleLength:
+  Max: 140
 
 AllCops:
   Exclude:
@@ -49,3 +52,4 @@ AllCops:
   - 'vendor/**/*'
   - 'node_modules/**/*'
 
+inherit_from: .rubocop_todo.yml

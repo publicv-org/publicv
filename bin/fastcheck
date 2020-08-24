@@ -2,11 +2,11 @@
 
 set -e
 
-# bundle exec rubocop
+bundle exec rubocop
 
 # TODO: re-enable in separate PR
 # bundle exec brakeman
 
 bundle exec rails test
 
-# bundle exec rails test:system
+bundle exec rails test:system

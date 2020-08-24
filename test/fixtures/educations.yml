@@ -5,3 +5,11 @@ john_education:
   description: Learned a lot
   ended_on: <%= Date.new(2012) %>
   school: ETH
+
+john_education_2:
+  cv: john_cv
+  started_on: <%= Date.new(2012) %>
+  degree: <%= Faker::Educator.degree %>
+  description: Learned a lot
+  ended_on: <%= Date.new(2014) %>
+  school: <%= Faker::Educator.university %>

@@ -29,7 +29,7 @@
             </div>
 
             <div class="py-5 w-100">
-              <%= f.submit t('devise.sessions.sign_in'), data: { disable_with: t('devise.sessions.signing_in') }, class: 'btn btn-primary w-100 rounded' %>
+              <%= f.submit t('devise.sessions.sign_in'), data: { disable_with: t('devise.sessions.signing_in') }, id: "#{resource_name}_log_in", class: 'btn btn-primary w-100 rounded' %>
             </div>
           <% end %>
 

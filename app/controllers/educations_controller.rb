@@ -2,6 +2,8 @@ class EducationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cv
   before_action :set_education, only: %i[edit update destroy]
+  skip_before_action :verify_authenticity_token, only: [:update_positions]
+
   respond_to :html, :js
 
   def new
@@ -29,6 +31,17 @@ class EducationsController < ApplicationController
         format.js { render 'educations/errors' }
       end
     end
+  end
+
+  def update_positions
+    params[:education].each_with_index do |edu_id, index|
+      education = Education.find_by(id: edu_id)
+      education&.update!(position: index)
+    end
+
+    @cv.update(custom_education_sort: true) if params[:education].present?
+
+    head :ok
   end
 
   def destroy
