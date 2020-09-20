@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
-  before_validation :downcase_subdomain
+  before_validation :sanitize_subdomain
 
   validates :first_name, :last_name, :subdomain, presence: true
   validates :subdomain, uniqueness: true
@@ -43,7 +43,7 @@ class User < ApplicationRecord
     self.cv ||= Cv.new
   end
 
-  def downcase_subdomain
-    self.subdomain = subdomain.downcase
+  def sanitize_subdomain
+    self.subdomain = subdomain.squish.strip.downcase.parameterize
   end
 end
