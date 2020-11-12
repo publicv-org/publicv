@@ -26,3 +26,7 @@ default: &default
 development:
   <<: *default
   database: publicv_development
+
+test:
+  <<: *default
+  database: publicv_test
