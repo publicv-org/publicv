@@ -35,7 +35,16 @@ Run the standard RoR app setup commands:
 
 1. `bundle install`
 2. `rake db:create`
-3. `rake db:migrate`
+3. `rake db:schema:load`
+4. `rake db:migrate`
+
+Run additional setup commands:
+
+1. `yarn install --check-files`
+
+Run your local server:
+
+`bin/rails s`
 
 # Contributing
 
