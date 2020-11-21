@@ -1,6 +1,21 @@
 class SearchesController < ApplicationController
-  def index
-    initalize_variables
+  def create
+    if search_param.present?
+      @search = Search.find_or_create_by!(query: sanitized_query, locale: I18n.locale.to_s)
+      redirect_to search_url(@search)
+    else
+      flash[:error] = t('flash.searches.query_blank')
+      redirect_to_root_domain
+    end
+  end
+
+  def show
+    @search = Search.friendly.find(params[:id])
+    seo_tags_for(@search)
+    @search.increment!(:views)
+    @total_results = @search.results.count
+    @results = @search.results.page(params[:page]).per(10)
+    @formatted_results = SearchesService.new(@results).coordinates_list
     respond_to do |format|
       format.html
       format.js { render partial: 'search_results' }
@@ -9,14 +24,11 @@ class SearchesController < ApplicationController
 
   private
 
-  def initalize_variables
-    results = Cv.published.full_text_search(search_param)
-    @total_results = results.count
-    @results = results.page(params[:page]).per(10)
-    @formatted_results = SearchesService.new(@results).coordinates_list
+  def search_param
+    params.permit(:search_query)[:search_query]
   end
 
-  def search_param
-    params.permit(:search_term)[:search_term]
+  def sanitized_query
+    Search.sanitized_query(search_param)
   end
 end

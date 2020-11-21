@@ -1,0 +1,4 @@
+en:
+ flash:
+   searches:
+     query_blank: please insert a search term in order to look for candidates!

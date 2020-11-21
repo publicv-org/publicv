@@ -13,10 +13,10 @@
     <div class="w-100 position-absolute map-search">
       <div class="row mx-0">
         <div class="col-11 col-lg-6 mx-auto py-2 map-search-container">
-          <%= form_tag search_path, method: :get do %>
+          <%= form_tag searches_path do %>
           <div class="d-flex justify-content-between">
             <div class="w-100">
-              <%= text_field_tag :search_term, params[:search_term], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
+              <%= text_field_tag :search_query, params[:search_query], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
             </div>
             <div>
               <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
@@ -221,6 +221,26 @@
       <div class="col-12 col-md-6 pt-3 pb-80 py-md-80">
         <%= image_pack_tag 'images/open-source.png', class: 'img-fluid', alt: 'open-source' %>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="popular-searches" class="bg-light py-40 my-40">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="text-primary">Popular Searches</h3>
+    </div>
+    <div class="row">
+      <% @featured_searches.in_groups_of(5) do |featured_searches_group| %>
+        <div class="col-md-4">
+          <ul>
+            <% featured_searches_group.each do |search| %>
+              <% next unless search %>
+              <li><%= link_to(search.seo_title, search) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

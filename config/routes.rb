@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'cv/:subdomain', to: 'cvs#show', as: 'cv_section'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
-  get 'search', to: 'searches#index'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -40,6 +39,7 @@ Rails.application.routes.draw do
     get '/print', to: 'cvs/printings#show', as: :print
   end
   resources :contacts, only: %i[new create]
+  resources :searches, only: %i[create show]
   resolve('Cv') { [:cv] }
 
   # resources :locations, except: %i[index show]

@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def seo_tags_for(resource)
+    @seo_title = resource.seo_title
+    # TODO: @seo_description = resource.seo_description
+  end
+
   protected
 
   def configure_permitted_parameters

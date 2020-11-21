@@ -10,11 +10,8 @@ class User < ApplicationRecord
 
   before_validation :sanitize_subdomain
 
-  validates :first_name, :last_name, :subdomain, presence: true
-  validates :subdomain, uniqueness: true
-  validates :subdomain, format: {
-    with: /\A[A-Za-z0-9](?!.*--)(?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?\z/i, message: 'not a valid subdomain'
-  }
+  validates :first_name, :last_name, presence: true
+  validates :subdomain, presence: true, uniqueness: true, subdomain: true
 
   after_initialize :prepare_blank_cv, if: :new_record?
 

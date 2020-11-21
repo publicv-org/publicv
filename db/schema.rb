@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_174346) do
+ActiveRecord::Schema.define(version: 2020_09_20_091803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,18 @@ ActiveRecord::Schema.define(version: 2020_07_21_174346) do
     t.datetime "updated_at", null: false
     t.integer "geoname_id"
     t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "query"
+    t.string "slug"
+    t.string "locale", default: "en", null: false
+    t.integer "views", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["query", "locale"], name: "index_searches_on_query_and_locale"
+    t.index ["query"], name: "index_searches_on_query", unique: true
+    t.index ["slug"], name: "index_searches_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
