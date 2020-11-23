@@ -101,8 +101,8 @@ en:
         last_name: 'Last Name'
         email: 'your-address@gmail.com'
         tel: '+1-123-456-7890'
-        subdomain_example: 'Example: your-name.publicv.org'
-      subdomain: 'Subdomain'
+        subdomain_example: 'This will determine the URL for your digital CV, for instance "your-name" becomes: "your-name.publicv.org". You''ll then be able to control its content and share it through a simple link!'
+      subdomain: 'Name of your publiCV, for instance: "your-name"'
       signup_label: 'Create your account, and then PubliCV'
       first_name: "First name"
       last_name: "Last name"

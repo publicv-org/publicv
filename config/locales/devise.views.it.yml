@@ -103,8 +103,8 @@ it:
         last_name: 'Cognome'
         email: 'tuaemail@gmail.com'
         tel: '+39 123 456 7890'
-        subdomain_example: 'Example: tuo-nome.publicv.it'
-      subdomain: 'Sito'
+        subdomain_example: 'Serve a creare il sito per il tuo CV digitale, per esempio "tuo-nome" diventa: "tuo-nome.publicv.it". Potrai controllarne i contenuti e condividerlo facilmente, con un link!'
+      subdomain: 'Nome del tuo publiCV, per esempio: "tuo-nome"'
       signup_label: 'Crea il tuo account, poi il tuo publiCV'
       first_name: "Nome"
       last_name: "Cognome"
