@@ -14,7 +14,7 @@ class Search < ApplicationRecord
   end
 
   def seo_title
-    "#{query.titleize} @ PubliCV"
+    query.titleize
   end
 
   def slug_candidates
