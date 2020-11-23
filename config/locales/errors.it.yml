@@ -2,6 +2,6 @@ it:
   errors:
     subdomain:
       length: 'la lunghezza non è idonea, deve essere compresa tra 3 e 63 caratteri (meglio se breve).'
-      dashes: 'il sottodominio non può contenere trattini.'
-      format: 'il formato non è valido, usa solo lettere minuscole, senza spazi né trattini.'
+      dashes: 'il sottodominio non può contenere due trattini (--).'
+      format: 'il formato non è valido, usa solo lettere minuscole, senza spazi.'
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'

@@ -21,12 +21,23 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'subdomain should be of valid format' do
-    @user.subdomain = 'subdomain-'
+    @user.subdomain = 'subdomain-' # not valid with dash at the end
     assert @user.valid?
-    assert_equal 'subdomain', @user.subdomain
+    assert_equal 'subdomain', @user.subdomain # changed to withoud dash
 
-    @user.subdomain = 'subdomain '
+    @user.subdomain = 'name-surname' # valid with dash in the middle
     assert @user.valid?
-    assert_equal 'subdomain', @user.subdomain
+    assert_equal 'name-surname', @user.subdomain # not changed
+
+    @user.subdomain = 'name--surname' # not valid with two dashes
+    assert @user.valid?
+    assert_equal 'name-surname', @user.subdomain # changed to one dash
+
+    @user.subdomain = 'subdomain ' # space
+    assert @user.valid?
+    assert_equal 'subdomain', @user.subdomain # space removed
+
+    @user.subdomain = 'a' * 64 # too long
+    assert_not @user.valid?
   end
 end

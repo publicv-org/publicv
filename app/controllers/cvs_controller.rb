@@ -11,7 +11,7 @@ class CvsController < ApplicationController
     elsif @cv.published?
       @cv_edit_controls = false # public view of CV on subdomain
     else
-      redirect_to_root_domain
+      redirect_to root_domain_url
     end
   end
 
@@ -55,7 +55,7 @@ class CvsController < ApplicationController
     if @user
       @cv = @user.cv
     else
-      redirect_to_root_domain
+      redirect_to root_domain_url
     end
   end
 

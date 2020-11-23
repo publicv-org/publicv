@@ -104,7 +104,7 @@ it:
         email: 'tuaemail@gmail.com'
         tel: '+39 123 456 7890'
         subdomain_example: 'Example: tuo-nome.publicv.it'
-      subdomain: 'Sottodominio'
+      subdomain: 'Sito'
       signup_label: 'Crea il tuo account, poi il tuo publiCV'
       first_name: "Nome"
       last_name: "Cognome"

@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
       redirect_to search_url(@search)
     else
       flash[:error] = t('flash.searches.query_blank')
-      redirect_to_root_domain
+      redirect_to root_domain_url
     end
   end
 
