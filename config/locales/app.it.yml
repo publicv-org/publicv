@@ -86,6 +86,7 @@ it:
           experience:
             location: "in %{location}"
             title: "Esperienza"
+            competencies: Competenze
           extras: "Altre informazioni"
           future_plans: "Piani per il futuro"
           interests: "Interessi"

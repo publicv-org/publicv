@@ -39,5 +39,8 @@ class UserTest < ActiveSupport::TestCase
 
     @user.subdomain = 'a' * 64 # too long
     assert_not @user.valid?
+
+    @user.subdomain = 'www' # reserved
+    assert_not @user.valid?
   end
 end

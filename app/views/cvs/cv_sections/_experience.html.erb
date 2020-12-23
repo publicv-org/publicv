@@ -34,7 +34,7 @@
               <p><a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
             <% end %>
             <p><%= work_period(experience.started_on, experience.ended_on) %></p>
-            <p class="mb-0">Core Competencies: </p>
+            <p class="mb-0"><%= t('content.main.cv.show.experience.competencies') -%>:</p>
             <span><%= experience.description.presence %></span>
           </div>
 
