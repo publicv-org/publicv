@@ -79,6 +79,7 @@ it:
             on_going: "%{started_on} - in corso"
           education:
             degree: "Livello: %{degree}"
+            description: Descrizione
             ended_on: "All'anno (lascia in bianco se in corso)"
             school: "Scuola"
             started_on: "Dall'anno"

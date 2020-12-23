@@ -78,6 +78,7 @@ en:
             on_going: "%{started_on} - Present"
           education:
             degree: "Degree: %{degree}"
+            description: Description
             ended_on: "To year (blank if on-going)"
             school: "School"
             started_on: "From year"

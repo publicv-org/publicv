@@ -18,8 +18,10 @@
               <h6 class="font-weight-normal mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
             <% end %>
             <p><%= study_period(education.started_on, education.ended_on) %></p>
-            <p class="mb-0">Description: </p>
-            <span><%= education.description.presence %></span>
+            <% if education.description.present? %>
+              <p class="mb-0"><%= t('content.main.cv.show.education.description')-%>: </p>
+              <span><%= education.description %></span>
+            <% end %>
           </div>
         </div>
       </div>
