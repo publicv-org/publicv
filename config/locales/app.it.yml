@@ -145,15 +145,15 @@ it:
       edit_your_cv: "Modifica CV"
       hire_someone: "Cerca Candidato"
       delete_account: "Eliminare l'account"
-      menuitem1: 'Iscriviti per creare il tuo profilo e CV'
-      menuitem2: 'Accedi per aggiornare il tuo profilo e CV'
+      menuitem1: 'Iscriviti per creare il tuo CV digitale'
+      menuitem2: 'Accedi per aggiornare il tuo CV'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'
       sign_up: 'Creare un profilo'
-      privacy: 'politica sulla riservatezza'
-      cookie: 'Gestione dei Cookie'
-      terms: 'condizioni'
+      privacy: 'Privacy policy'
+      cookie: 'Cookie policy'
+      terms: 'Condizioni'
       contact_us: 'Contattaci'
   success:
     cv:
