@@ -31,48 +31,44 @@
     <div class="text-center pb-40">
       <h5 class="text-primary"><%= t('.last_cvs') -%></h5>
     </div>
-    <div class="container px-0">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="d-flex align-items-center">
-              <% @featured_cvs.each do |cv| %>
-              <div class="mb-5">
-                <div class="card card-width shadow-sm border-0 rounded mx-3">
-                  <div class="card-body p-4">
-                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
-                      <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
-                      <div class="pl-3">
-                        <h6><%= cv.abbr_name %></h6>
-                        <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
+    <div class="container scroller">
+      <div class="d-flex align-items-center">
+        <% @featured_cvs.each do |cv| %>
+          <div class="mb-5">
+            <div class="card card-width shadow-sm border-0 rounded mx-3">
+              <div class="card-body p-4">
+                <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                  <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+                  <div class="pl-3">
+                    <h6><%= cv.abbr_name %></h6>
+                      <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
                         <small>
                           <i class="fas fa-map-marker"></i>
                           <%= cv.user&.current_location&.city %>
                         </small>
-                        <% end %>
-                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
-                          <%= short_desc(cv.about, 40) %>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="pt-3 d-flex align-items-center justify-content-between">
-                      <small><%= cv.published_at&.strftime("%B %d, %Y") %></small>
-                      <small>
-                        <%= link_to cv_section_path(cv.user.subdomain) do %>
-                        <i class="ml-2 fas fa-angle-right"></i> View CV
-                        <% end %>
-                      </small>
-                    </div>
+                      <% end %>
+                      <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
+                        <%= short_desc(cv.about, 40) %>
+                      </span>
                   </div>
                 </div>
+                <div class="pt-3 d-flex align-items-center justify-content-between">
+                  <small>
+                    <%= cv.published_at&.strftime("%B %d, %Y") %>
+                  </small>
+                  <small>
+                    <%= link_to cv_section_path(cv.user.subdomain) do %>
+                      <i class="ml-2 fas fa-angle-right"></i> View CV
+                    <% end %>
+                  </small>
+                </div>
               </div>
-              <% end %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="text-center pb-40"><%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
+        <% end %>
+       </div>
     </div>
+       <div class="text-center pb-40"><%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
   </div>
   <div class="container pt-40 pt-md-80">
     <div class="text-center" id="why">

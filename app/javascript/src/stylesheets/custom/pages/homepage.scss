@@ -54,3 +54,11 @@
 .language-switcher{
   border-radius: 2rem;
 }
+.scroller{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+.scroller::-webkit-scrollbar {
+  display: none;
+}
