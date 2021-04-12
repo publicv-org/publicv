@@ -7,7 +7,7 @@
           <div class="d-flex align-items-center justify-content-between">
             <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
             <div class="w-100 pl-3">
-              <p class="mb-0 font-size-14 text-right"><%= cv.published_at&.strftime("%B %d, %Y") %></p>
+              <p class="mb-0 font-size-14 text-right"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
               <div class="d-flex">
                 <h6 class="text-primary pr-1"><%= cv.abbr_name %></h6>
                 <span class="text-muted font-size-14 pl-1"><%= cv.user&.current_location&.original_address %></span>
