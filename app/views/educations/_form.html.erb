@@ -14,14 +14,14 @@
             <%= f.text_field :degree, class: 'form-control', id: "#{id}_degree" %>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <div class="form-group mb-5">
             <%= f.label :started_on, t('content.main.cv.show.education.started_on'), for: "#{id}_started_on", class: 'text-muted d-block' %>
             <%= f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
             discard_month: true, include_blank: true }, class: 'custom-select form-control' %>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <div class="form-group mb-5">
             <%= f.label :ended_on, t('content.main.cv.show.education.ended_on'), for: "#{id}_ended_on", class: 'text-muted d-block' %>
             <%= f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,

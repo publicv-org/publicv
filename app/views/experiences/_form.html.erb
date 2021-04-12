@@ -30,14 +30,14 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <div class="form-group mb-5">
             <%= f.label :started_on, t('content.main.cv.new.experience.from'), for: "#{id}_started_on", class: 'text-muted d-block' %>
             <%= f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
             order: %i[day month year], include_blank: true }, class: 'custom-select form-control' %>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <div class="form-group mb-5">
             <%= f.label :ended_on, t('content.main.cv.new.experience.to'), for: "#{id}_ended_on", class: 'text-muted d-block' %>
             <%= f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true, order: %i[day month year], include_blank: true }, class: 'custom-select form-control' %>
