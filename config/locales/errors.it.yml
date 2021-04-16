@@ -5,3 +5,4 @@ it:
       dashes: 'il sottodominio non può contenere due trattini (--).'
       format: 'il formato non è valido, usa solo lettere minuscole, senza spazi.'
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'
+      character_limit: 'hai superato il limite di %{length} caratteri.'

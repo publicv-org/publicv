@@ -30,6 +30,7 @@ import 'bootstrap/dist/js/bootstrap';
 import '../src/javascripts/address_autocomplete';
 import '../src/javascripts/locationiq_maps';
 import '../src/javascripts/custom';
+import '../src/javascripts/custom_navbar';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';

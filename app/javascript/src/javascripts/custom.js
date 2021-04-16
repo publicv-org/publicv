@@ -14,19 +14,6 @@ function handleSelect(){
   }
 }
 
-function handleCount(elem, count){
-  if(count > 1000){
-    elem.style.backgroundColor='rgb(255, 184, 194)';
-    $(elem).next().removeClass('text-muted').addClass('text-danger').html('You have exceeded character limit!')
-    $(elem).parents('form').find('.submit-dt').prop('disabled', true);
-  }
-  else{
-    elem.style.backgroundColor='#ffffff';
-    $(elem).next().removeClass('text-danger').html(count + '/1000');
-    $(elem).parents('form').find('.submit-dt').prop('disabled', false);
-  }
-}
-
 window.enableSortable = function(){
   $('#sortable, #sortable-edu').sortable({
       axis: 'y',
@@ -50,8 +37,4 @@ window.enableSortable = function(){
 $(document).on('turbolinks:load', () => {
   handleSelect();
   window.enableSortable();
-
-  $(document).on('input', '.limit-desc', function(){
-    handleCount(this, this.value.length);
-  });
 });

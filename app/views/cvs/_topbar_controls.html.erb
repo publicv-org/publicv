@@ -1,11 +1,15 @@
-<div class="border-top">
+<div class="border-top" id="overlay-topbar">
   <div class="container">
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between py-3">
       <% if @cv_edit_controls %>
-        <div class="w-100 pb-3 pb-md-0">
-          <h6 class="d-inline-block pr-3 border-right">CV</h6>
+        <div class="text-wrapup w-100 pb-md-0 ml-4">
+          <h6 class="d-inline-block pr-3 border-r font-weight-bold">CV</h6>
           <h6 class="d-inline-block px-3"><%= @cv.user&.first_name %></h6>
-          <span class="rounded-circle badge badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+            <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do %>
+              <span type="button" class="badge rounded-circle badge-primary-light text-primary p-2 ml-2">
+                <i class="icon-pencil"></i>
+              </span>
+            <% end %>
         </div>
       <% end %>
 
@@ -20,7 +24,7 @@
           <% end %>
 
           <div class="dropdown">
-            <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-outline-primary text-wrapup" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= t('content.main.buttons.download') %><i class="fas fa-angle-down pl-1"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">

@@ -35,7 +35,7 @@
       <div class="d-flex align-items-center">
         <% @featured_cvs.each do |cv| %>
           <div class="mb-5">
-            <div class="card card-width shadow-sm border-0 rounded mx-3">
+            <div class="card card-width shadow-sm border-0 rounded mr-4">
               <div class="card-body p-4">
                 <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
                   <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>

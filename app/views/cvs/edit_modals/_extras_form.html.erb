@@ -7,13 +7,15 @@
           <div class="col-12">
             <div class="form-group mb-5">
               <%= f.label :interests, t('content.main.cv.show.interests'), class: 'text-muted d-block' %>
-              <%= f.text_area :interests, class: 'form-control form-control-lg', rows: 8, "aria-label" => "interests" %>
+              <%= f.text_area :interests, class: 'form-control form-control-lg limit-desc-extras', rows: 8, "aria-label" => "interests" %>
+                <span class="text-muted">0/255</span>
             </div>
           </div>
           <div class="col-12">
             <div class="form-group mb-5">
               <%= f.label :future_plans, t('content.main.cv.show.future_plans'), class: 'text-muted d-block' %>
-              <%= f.text_area :future_plans, class: 'form-control', rows: 8, "aria-label" => "future_plans" %>
+              <%= f.text_area :future_plans, class: 'form-control limit-desc-extras', rows: 8, "aria-label" => "future_plans" %>
+                <span class="text-muted">0/255</span>
             </div>
           </div>
         </div>
@@ -21,7 +23,7 @@
         <div class="row">
           <div class="col-12 text-right">
             <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-outline-primary rounded' %>
-            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded' %>
+            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded submit-extras' %>
           </div>
         </div>
       </div>

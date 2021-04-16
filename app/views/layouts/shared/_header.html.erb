@@ -1,65 +1,74 @@
 <!-- Header Container
   ================================================== -->
 <div class="position-fixed z-index-fixed w-100 bg-white shadow-sm">
-  <div class="container">
-    <nav class="navbar navbar-expand-md navbar-light py-3 px-0">
-      <%= link_to(root_domain_url, class: 'navbar-brand') do %>
-        <%= image_pack_tag 'images/logo.svg' %>
-      <% end %>
-      <button class="navbar-toggler bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="icon-menu"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto d-none d-md-flex">
-          <li class="nav-item mx-3">
-            <a class="nav-link badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="/#why">
-            About
-            <!-- <i class="ml-1 fas fa-angle-down"></i> -->
+  <section class="navigation">
+    <div class="container">
+      <div class="brand ">
+        <%= link_to(root_domain_url ) do %>
+          <%= image_pack_tag 'images/logo.svg' %>
+        <% end %>
+      </div>
+      <nav class="nav-main">
+        <div class="nav-mobile"><a id="nav-toggle"><span></span></a></div>
+        <ul class="nav-list" id="overlay-navbar">
+          <li class="mr-5 d-none d-md-flex ">
+            <a class="nav-link badge badge-pill badge-primary badge-primary-light mt-1 p-2 text-primary font-weight-normal" href="/#why">
+                         About
             </a>
           </li>
-        </ul>
-        <% if user_signed_in? %>
-          <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-            <% unless request.path == cv_section_path(current_user.subdomain) %>
-              <%= link_to t('layouts.nav.edit_your_cv'), cv_section_path(current_user.subdomain), class: 'btn btn-lg btn-outline-primary mr-2' %>
-            <% end %>
-            <div class="dropdown">
-              <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>
-                <span class="mx-2">Hi <%= "#{current_user.first_name}!" %></span>
-                <i class="fas fa-angle-down"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
-                <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item py-2' %>
-                <%= link_to t('layouts.nav.delete_account'), account_path(current_user), method: :delete, remote: true, data: {confirm: t('content.main.confirm.delete_account') }, class: 'dropdown-item py-2' %>
+          <% if user_signed_in? %>
+            <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-md-0">
+              <div class="pb-2 edit-cv" id="edit-your-CV">
+                <% unless request.path == cv_section_path(current_user.subdomain) %>
+                  <%= link_to t('layouts.nav.edit_your_cv'), cv_section_path(current_user.subdomain) , class: 'btn btn-lg btn-outline-primary mx-2'%>
+                <% end %>
               </div>
+              <li>
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>
+                  <span class="mx-2">Hi <%= "#{current_user.first_name}!" %></span>
+                  <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton" >
+                  <div>
+                    <%= link_to t('layouts.nav.logout'), destroy_user_session_path, data: { method: :delete }, class: 'dropdown-item py-2 badge-primary-lt' %>
+                  </div>
+                  <div>
+                    <%= link_to t('layouts.nav.delete_account'), account_path(current_user), method: :delete, remote: true, data: {confirm: t('content.main.confirm.delete_account') }, class: 'dropdown-item py-2 badge-primary-lt' %>
+                  </div>
+                </div>
+              </li>
             </div>
-          </div>
-        <% else %>
-          <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-            <div class="dropdown">
+          <% else %>
+            <li class="pb-2 ml-2">
               <button class="btn btn-lg btn-outline-primary mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mx-2"><%= t('layouts.nav.your_cv') %></span>
                 <i class="fas fa-angle-down"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
-                <%= link_to t('layouts.nav.menuitem1'), new_user_registration_path, class: 'dropdown-item py-2' %>
-                <%= link_to t('layouts.nav.menuitem2'), new_user_session_path, class: 'dropdown-item py-2' %>
+                <%= link_to t('layouts.nav.menuitem1'), new_user_registration_path, class: 'dropdown-item py-2 badge-primary-lt' %>
+                <%= link_to t('layouts.nav.menuitem2'), new_user_session_path, class: 'dropdown-item py-2 badge-primary-lt' %>
               </div>
-            </div>
-            <a class="btn btn-lg btn-primary ml-2" href="/#search"><%= t('layouts.nav.hire_someone') %></a>
-            <div class="ml-2">
-              <select class="custom-select language-switcher" id="inputGroupSelect01">
-                <option value="org/">English</option>
-                <option value="it/">Italian</option>
-              </select>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </nav>
-  </div>
-  <%= render partial: 'cvs/topbar_controls' if cv_show_page? && current_user == @cv&.user %>
+            </li>
+            <li class="pb-2">
+              <button class="btn btn-lg btn-primary ml-2" href="/#search">
+                <%= t('layouts.nav.hire_someone') %>
+              </button>
+            </li>
+            <li>
+              <div class="ml-2">
+                <select class="custom-select language-switcher" id="inputGroupSelect01">
+                  <option value="org/">English</option>
+                  <option value="it/">Italian</option>
+                </select>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </section>
+    <%= render partial: 'cvs/topbar_controls' if cv_show_page? && current_user == @cv&.user %>
 </div>
 <!-- Header Container / End -->
 <%= render partial: 'layouts/shared/js_vars' %>

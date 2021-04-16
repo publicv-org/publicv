@@ -2,6 +2,7 @@ class Cv < ApplicationRecord
   include PgSearch
 
   ABOUT_MAX_LENGTH = 1000
+  INFO_MAX_LENGTH = 255
   CV_SECTIONS = %w[intro summary skills extras authorization].freeze
 
   belongs_to :user
@@ -12,6 +13,8 @@ class Cv < ApplicationRecord
   has_one  :current_location, through: :user
 
   validates :about, :authorization_statement, length: { maximum: ABOUT_MAX_LENGTH }
+  validates :future_plans, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
+  validates :interests, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
   validates :user, uniqueness: true
   delegate :email, :tel, :subdomain, to: :user
 

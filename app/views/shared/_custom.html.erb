@@ -1,0 +1,63 @@
+<script>
+  (function() {
+      const send = XMLHttpRequest.prototype.send
+      XMLHttpRequest.prototype.send = function() {
+        this.addEventListener('load', function() {
+          if (document.querySelector(".limit-desc")) {
+            document.querySelectorAll(".limit-desc").forEach(item =>{
+              item.addEventListener('input', function() {
+                handleCount(this, this.value.length);
+              });
+            });
+          }
+          if (document.querySelector(".limit-desc-extras")) {
+            document.querySelectorAll(".limit-desc-extras").forEach(item =>{
+              item.addEventListener('input', function() {
+                handleCountExtras(this, this.value.length);
+              });
+            });
+          }
+        });
+        return send.apply(this, arguments)
+      }
+  })()
+
+  window.onload = function() {
+    window.handleCount = function handleCount(elem, count) {
+      elem_sibling = elem.nextElementSibling
+      elem_parent = elem.parentElement.parentElement.parentElement.parentElement
+      if(count > 1000){
+        elem.style.backgroundColor='rgb(255, 184, 194)';
+        elem_sibling.classList.remove('text-muted');
+        elem_sibling.classList.add('text-danger');
+        elem_sibling.innerHTML = "<%= t('errors.subdomain.character_limit', length: 1000)%>";
+        elem_parent.querySelector('.submit-dt').setAttribute('disabled', true);
+      }
+      else{
+        elem.style.backgroundColor='#ffffff';
+        elem_sibling.classList.remove('text-danger');
+        elem_sibling.classList.add('text-muted');
+        elem_sibling.innerHTML = count + '/1000';
+        elem_parent.querySelector('.submit-dt').removeAttribute('disabled');
+      }
+    }
+    window.handleCountExtras = function handleCountExtras(elem, count) {
+      elem_sibling = elem.nextElementSibling
+      elem_parent = elem.parentElement.parentElement.parentElement.parentElement
+      if(count > 255) {
+        elem.style.backgroundColor='rgb(255, 184, 194)';
+        elem_sibling.classList.remove('text-muted');
+        elem_sibling.classList.add('text-danger');
+        elem_sibling.innerHTML = "<%= t('errors.subdomain.character_limit', length: 255)%>";
+        elem_parent.querySelector('.submit-extras').setAttribute('disabled', true);
+      }
+      else {
+        elem.style.backgroundColor='#ffffff';
+        elem_sibling.classList.remove('text-danger');
+        elem_sibling.classList.add('text-muted');
+        elem_sibling.innerHTML = count + '/255';
+        elem_parent.querySelector('.submit-extras').removeAttribute('disabled');
+      }
+    }
+  }
+</script>
