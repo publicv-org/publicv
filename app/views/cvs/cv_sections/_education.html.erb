@@ -38,6 +38,7 @@
             <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
               <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="fas fa-trash-alt"></i></span>
             <% end %>
+            <h4 class="text-primary h-100 mx-2 sort_handler" id="sort_ed_<%= education.id %>"><i class="fas fa-sort"></i></h4>
           <% end %>
         </div>
       <% end %>

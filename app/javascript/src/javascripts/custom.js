@@ -16,6 +16,8 @@ function handleSelect(){
 
 window.enableSortable = function(){
   $('#sortable, #sortable-edu').sortable({
+      handle: '.sort_handler',
+      cursor: 'move',
       axis: 'y',
       stop: function (event, ui) {
         let data = $(this).sortable('serialize');
