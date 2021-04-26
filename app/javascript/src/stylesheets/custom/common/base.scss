@@ -279,3 +279,11 @@ nav {
     }
   }
 }
+.card-feature a:link{
+  text-decoration: none !important;
+}
+.card-feature a:hover{
+  color: #91076c;
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+  transition: all 0.4s ease;
+}

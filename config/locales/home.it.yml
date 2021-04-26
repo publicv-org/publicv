@@ -6,6 +6,8 @@ it:
       your_email_address: Il tuo indirizzo email
       notify_me: Avvisami!
     index:
+      created_last_30_days: |
+        <b class="text-primary">%{count} CV</b> aggiunti e
       last_cvs: Ultimi CV pubblicati
       updated_last_30_days: |
         <b class="text-primary">%{count} CV</b> aggiornati nell'ultimo mese.
@@ -28,7 +30,7 @@ it:
         <span style="text-align:center;display:block"><b>tuo-nome</b>.publicv.it</span>
         che sarà la tua pagina web professionale.
       jobseeker_copy_4: |
-        PubliCV va dritto al punto: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
+        <b>PubliCV va dritto al punto</b>: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
         farti monitorare dalle Risorse Umane e nemmeno per cinguettare come un uccellino… Sei qui per trovare un lavoro e <b>farti pagare</b>.
       jobseeker_copy_5: |
         <b>Dai valore al tuo tempo</b> facendoti contattare solo da Aziende e datori di lavoro che dimostrino un vero interesse per il tuo profilo.

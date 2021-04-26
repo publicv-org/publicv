@@ -2,30 +2,30 @@
 <div class="row">
   <% @results.each do |cv| %>
     <div class="col-12 pt-5">
-      <div class="card shadow-sm border-0 rounded">
-        <div class="card-body p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
-            <div class="w-100 pl-3">
-              <p class="mb-0 font-size-14 text-right"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
-              <div class="d-flex">
-                <h6 class="text-primary pr-1"><%= cv.abbr_name %></h6>
-                <span class="text-muted font-size-14 pl-1"><%= cv.user&.current_location&.original_address %></span>
-              </div>
+      <div class="card shadow-sm border-0 rounded card-feature">
+        <%= link_to cv_section_path(cv.user.subdomain) do %>
+          <div class="card-body p-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+              <div class="w-100 pl-3">
+                <p class="text-dark mb-0 font-size-14 text-right"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
+                <div class="d-flex">
+                  <h6 class="text-dark pr-1"><%= cv.abbr_name %></h6>
+                  <span class="text-muted font-size-14 pl-1"><%= cv.user&.current_location&.original_address %></span>
+                </div>
 
-              <div>
-                <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-2 text-wrap text-left">
-                  <%= short_desc(cv.about, 255) %>
-                </span>
+                <div>
+                  <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-2 text-wrap text-left">
+                    <%= short_desc(cv.about, 255) %>
+                  </span>
+                </div>
+                <p class="mb-0 pt-2 font-size-14 text-right">
+                  <i class="ml-2 fas fa-angle-right"></i> publi<b>CV</b>
+                </p>
               </div>
-              <p class="mb-0 pt-2 font-size-14 text-right">
-                <%= link_to cv_section_path(cv.user.subdomain) do %>
-                  <i class="ml-2 fas fa-angle-right"></i> View CV
-                <% end %>
-              </p>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>

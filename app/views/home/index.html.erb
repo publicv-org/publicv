@@ -31,44 +31,45 @@
     <div class="text-center pb-40">
       <h5 class="text-primary"><%= t('.last_cvs') -%></h5>
     </div>
+
     <div class="container scroller">
       <div class="d-flex align-items-center">
         <% @featured_cvs.each do |cv| %>
           <div class="mb-5">
-            <div class="card card-width shadow-sm border-0 rounded mr-4">
-              <div class="card-body p-4">
-                <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
-                  <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
-                  <div class="pl-3">
-                    <h6><%= cv.abbr_name %></h6>
-                      <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
-                        <small>
-                          <i class="fas fa-map-marker"></i>
-                          <%= cv.user&.current_location&.city %>
-                        </small>
-                      <% end %>
-                      <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
-                        <%= short_desc(cv.about, 40) %>
-                      </span>
+            <div class="card card-width shadow-sm border-0 rounded mr-4 card-feature">
+              <%= link_to cv_section_path(cv.user.subdomain) do %>
+                <div class="card-body p-4">
+                  <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                    <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+                    <div class="pl-3">
+                      <h6 class="text-dark"><%= cv.abbr_name %></h6>
+                        <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
+                          <small class="text-dark">
+                            <i class="fas fa-map-marker"></i>
+                            <%= cv.user&.current_location&.city %>
+                          </small>
+                        <% end %>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
+                          <%= short_desc(cv.about, 40) %>
+                        </span>
+                    </div>
+                  </div>
+                  <div class="pt-3 d-flex align-items-center justify-content-between">
+                    <small class="text-dark">
+                      <%= cv.updated_at&.strftime("%B %d, %Y") %>
+                    </small>
+                    <small>
+                        <i class="ml-2 fas fa-angle-right"></i> publi<b>CV</b>
+                    </small>
                   </div>
                 </div>
-                <div class="pt-3 d-flex align-items-center justify-content-between">
-                  <small>
-                    <%= cv.updated_at&.strftime("%B %d, %Y") %>
-                  </small>
-                  <small>
-                    <%= link_to cv_section_path(cv.user.subdomain) do %>
-                      <i class="ml-2 fas fa-angle-right"></i> View CV
-                    <% end %>
-                  </small>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         <% end %>
        </div>
     </div>
-       <div class="text-center pb-40"><%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
+       <div class="text-center pb-40"><%== t('.created_last_30_days', count: @cvs_last_updated_count) -%> <%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
   </div>
   <div class="container pt-40 pt-md-80">
     <div class="text-center" id="why">
@@ -80,6 +81,10 @@
     <div class="row">
       <div class="col-12 col-lg-6 pr-xl-5">
         <h4 class="pb-40"><%== t('home.index.jobseeker') -%></h4>
+        <div class="d-flex pb-40">
+          <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+          <span class="ml-2"><%== t('home.index.jobseeker_copy_3') -%></span>
+        </div>
         <div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
@@ -88,10 +93,6 @@
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2"><%== t('home.index.jobseeker_copy_2') -%></span>
-          </div>
-          <div class="d-flex pb-40">
-            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2"><%== t('home.index.jobseeker_copy_3') -%></span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>

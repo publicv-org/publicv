@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @featured_cvs = Cv.published.headshot_present.about_present.order(updated_at: :desc).limit(4)
     @featured_searches = Search.ordered.localized.limit(15)
     @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
+    @cvs_last_created_count = Cv.where('created_at > ?', 30.days.ago).count
     @formatted_results = SearchesService.new(Cv.published.includes(:user, :locations)).coordinates_list
   end
 

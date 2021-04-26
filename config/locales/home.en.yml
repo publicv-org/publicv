@@ -6,6 +6,8 @@ en:
       your_email_address: Your email address
       notify_me: Notify Me
     index:
+      created_last_30_days: |
+        <b class="text-primary">%{count} CVs</b> created and
       last_cvs: Last published CVs
       updated_last_30_days: |
         <b class="text-primary">%{count} CVs</b> updated in the last month.
@@ -26,7 +28,7 @@ en:
         We put you first. Your CV will be live as a real website, at:
         <span style="text-align:center;display:block"><b>your-name</b>.publicv.org</span>and this will be your professional homepage.
       jobseeker_copy_4: |
-        PubliCV goes straight to the point: you’re not here to make new friends, connect with people, build your network,
+        <b>PubliCV goes straight to the point</b>: you’re not here to make new friends, connect with people, build your network,
         being monitored by your HR, nor to tweet like a bird… You’re here to find a job and <b>get paid</b> for it.
       jobseeker_copy_5: |
         <b>Value your time</b> by being contacted only by Companies that are willing to show real interest and even pay to contact you.
