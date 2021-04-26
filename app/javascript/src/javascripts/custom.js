@@ -38,3 +38,13 @@ $(document).on('turbolinks:load', () => {
   handleSelect();
   window.enableSortable();
 });
+
+(function() {
+  const send = XMLHttpRequest.prototype.send
+    XMLHttpRequest.prototype.send = function() {
+      this.addEventListener('load', function() {
+      $('[data-toggle="tooltip"]').tooltip();
+      })
+      return send.apply(this, arguments)
+    }
+})()
