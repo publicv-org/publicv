@@ -10,7 +10,7 @@ it:
         <b class="text-primary">%{count} CV</b> aggiunti e
       last_cvs: Ultimi CV pubblicati
       updated_last_30_days: |
-        <b class="text-primary">%{count} CV</b> aggiornati nell'ultimo mese.
+        <b class="text-primary">%{count}</b> aggiornati nell'ultimo mese.
       why: Perché
       because: |
         Perché è anche <u><a class="text-primary" href="#stakeholder">tuo</a></u>.

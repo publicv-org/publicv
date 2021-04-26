@@ -10,7 +10,7 @@ en:
         <b class="text-primary">%{count} CVs</b> created and
       last_cvs: Last published CVs
       updated_last_30_days: |
-        <b class="text-primary">%{count} CVs</b> updated in the last month.
+        <b class="text-primary">%{count}</b> updated in the last month.
       why: Why
       because: |
         Because it's also <a class="text-primary" href="#stakeholder">yours</a>.
