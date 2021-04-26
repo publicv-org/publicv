@@ -306,3 +306,19 @@ nav {
 .badge-pill-cv{
   border-radius: 13px;
 }
+.info-icon:hover{
+  color: rgba(146, 7, 109, 0.7);
+}
+.tooltip-inner {
+  padding: 3px 8px;
+  color: white;
+  font-weight: bold;
+  background: rgba(146, 7, 109, 0.8);
+  border-radius: .50rem;
+}
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+  right: 0;
+  content: "";
+  border-width: 5px 0 5px 5px;
+  border-left-color: rgba(146, 7, 109, 0.8);
+}
