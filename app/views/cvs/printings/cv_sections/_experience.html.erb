@@ -9,7 +9,7 @@
     <% experiences.each_with_index do |experience, index| %>
       <% has_website = experience.website_url.present? %>
 
-      <div class="d-flex flex-row font-size-14 pt-4">
+      <div class="d-flex flex-row font-size-14 pt-4 nobreak">
         <span class="badge badge-light h-100 p-1 pr-2 border">
           <% if has_website %>
             <%= wicked_pdf_image_tag "http://www.google.com/s2/favicons?domain=#{experience.website_url}" %>

@@ -19,7 +19,11 @@
               <%= text_field_tag :search_query, params[:search_query], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
             </div>
             <div>
-              <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
+              <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') },
+                                                            class: 'btn btn-primary d-none d-sm-block' %>
+              <%= button_tag :submit, class: 'btn btn-primary d-block d-sm-none' do %>
+                <i class="fas fa-search"></i>
+              <% end %>
             </div>
           </div>
           <% end %>
