@@ -204,6 +204,7 @@ GEM
     msgpack (1.2.9)
     multi_json (1.13.1)
     netrc (0.11.0)
+    newrelic_rpm (7.0.0)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -411,6 +412,7 @@ DEPENDENCIES
   mailgun-ruby (~> 1.2.0)
   maxminddb
   minitest-reporters (~> 1.0.5)
+  newrelic_rpm
   paperclip
   pg (>= 0.18, < 2.0)
   pg_search
