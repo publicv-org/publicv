@@ -67,5 +67,6 @@ end
 
 group :production do
   gem 'lograge'
+  gem 'newrelic_rpm'
   gem 'wkhtmltopdf-heroku'
 end
