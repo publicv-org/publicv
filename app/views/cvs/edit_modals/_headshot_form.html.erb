@@ -1,0 +1,31 @@
+<%= render 'shared/modal_header', id: 'edit_cv_headshot', title: t('content.main.cv.edit.headshot.title'), size: 'modal-md' do %>
+  <%= form_with model: @cv, html: { multipart: true } do |f| %>
+		<div class="form-group mt-5" id="cv_head">
+			<div class="row profile-logo" data-behavior="image-uploader">
+				<div class="col-md-6 col-12 d-flex justify-content-center">
+					<div class="preview" >
+						<% if @cv.headshot.present? %>
+							<%= image_tag(@cv.headshot.url(:default), class: 'w-100 rounded border' ) %>
+						<% else %>
+							<%= image_pack_tag 'images/head-shot.png', alt: "" %>
+						<% end %>
+					</div>
+					<div class='default-preview d-none'>
+						<%= image_pack_tag 'images/head-shot.png', alt: "" %>
+					</div>
+				</div>
+				<div class="col-md-6 col-12 text-md-left text-center">
+					<button type='button' id='uploader' class="btn btn-primary rounded">Upload Photo <i class="icon-cloud-upload"></i></button>
+				</div>
+				<%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
+			</div>
+			<div class="row mt-5">
+				<div class="col-12 text-right">
+					  <button id= 'profile_img' class="btn btn-outline-primary rounded mr-2">Delete <i class="fas fa-trash"></i></button>
+					  <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded mr-4', id: 'headshot-submit' %>
+				</div>
+			</div>
+			<%= f.hidden_field :remove_headshot %>
+		</div>
+  <% end %>
+<% end %>

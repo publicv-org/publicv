@@ -50,6 +50,8 @@ en:
             title: "Edit professional summary and goals"
           authorization:
             title: "Edit authorization statement"
+          headshot:
+            title: "Edit CV profile picture"
         new:
           education:
             degree: "Degree"

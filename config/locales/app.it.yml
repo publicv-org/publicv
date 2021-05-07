@@ -51,6 +51,8 @@ it:
             title: "Modifica riepilogo e obiettivi professionali"
           authorization:
             title: "Modifica la dichiarazione di autorizzazione"
+          headshot:
+            title: "Edit CV profile picture"
         new:
           education:
             degree: "Livello"

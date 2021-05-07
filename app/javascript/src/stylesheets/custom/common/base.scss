@@ -306,3 +306,27 @@ nav {
 .badge-pill-cv{
   border-radius: 13px;
 }
+.headshot-edit{
+  position: relative;
+}
+.popup-text{
+  position: absolute;
+  bottom: 0;
+  left: 63%;
+}
+@media only screen and (max-width: 768px) {
+  .popup-text{
+    bottom: 0;
+    left: 170px;
+  }
+}
+.edit-btn{
+  background-color: #91076c;
+  color: white;
+  size: 30px;
+}
+@media screen and (min-width: 768px) {
+  .text-md-left{
+    margin-top: 75px;
+  }
+}

@@ -1,8 +1,15 @@
 <div class="d-flex pl-3 pl-md-6 pr-2 pb-4">
   <div class=" w-100">
     <div class="row flex-column-reverse flex-md-row">
-      <div class="col-12 col-md-10 mt-2 mb-md-0">
-        <h2><%= cv_user_name(@cv) %></h2>
+      <div class="col-12 col-md-9 mt-2 mb-md-0">
+        <div class="d-flex justify-content-between justify-content-md-start">
+          <h2><%= cv_user_name(@cv) %></h2>
+          <% if @cv_edit_controls %>
+            <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit mt-2 ml-4' do %>
+              <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+            <% end %>
+          <% end %>
+        </div>
         <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
         <% if @user.current_location.present? %>
           <h6 class="font-weight-normal"><%= @user.current_location&.original_address %></h6>
@@ -32,16 +39,15 @@
       </div>
 
       <% if @cv_edit_controls || @cv.headshot.exists? %>
-        <div class="col-12 col-md-2 mb-2 mb-md-0">
+        <div class="col-12 col-md-3 mb-2 mb-md-0 headshot-edit">
           <%= image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
+          <% if @cv_edit_controls %>
+            <%= link_to edit_cv_section_path(section: :headshot), remote: true, class: 'btn-cv btn-edit popup-text' do %>
+              <span class="badge rounded-circle p-2 edit-btn"><i class="icon-pencil"></i></span>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
-  <% if @cv_edit_controls %>
-    <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do %>
-      <span type="button" class="badge rounded-circle badge-primary-light text-primary p-2 ml-2"><i class="icon-pencil"></i></span>
-    <% end %>
-  <% end %>
 </div>

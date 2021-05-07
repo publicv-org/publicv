@@ -3,7 +3,7 @@
     <div class="modal-body p-5">
       <div class="alert alert-danger d-none"></div>
       <div class="row">
-        <div class="col-12 col-xl-8">
+        <div class="col-12 col-xl-11">
           <div class="row">
             <%= f.fields_for :user, @cv.user do |user_fields| %>
               <div class="col-12 col-xl-6">
@@ -56,29 +56,6 @@
           </div>
         </div>
 
-        <div class="col-12 col-xl-4">
-          <div class="form-group mb-5">
-            <%= f.label :headshot, class: 'text-muted d-block' %>
-            <div class="profile-logo" data-behavior="image-uploader">
-              <div class="preview">
-                <% if @cv.headshot.present? %>
-                  <%= image_tag @cv.headshot.url, class: "w-100 rounded border" %>
-                <% else %>
-                  <%= image_pack_tag 'images/head-shot.png', alt: "" %>
-                <% end %>
-              </div>
-              <div class='default-preview d-none'>
-                <%= image_pack_tag 'images/head-shot.png', alt: "" %>
-              </div>
-              <div>
-                <button type='button' id='uploader' class="btn btn-primary btn-sm mt-2 mr-3">Upload Photo <i class="icon-cloud-upload"></i></button>
-                <button type="button" id= 'profile_img' class="btn btn-sm btn-primary mt-2 ml-3"><i class="fas fa-trash"></i></button>
-             </div>
-              <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
-              <%= f.hidden_field :remove_headshot %>
-            </div>
-          </div>
-        </div>
         <div class="col-12 mb-5">
           <label class="d-block text-muted">Gender</label>
           <div class="custom-control custom-radio custom-control-inline">
@@ -103,7 +80,7 @@
 
         <%= f.fields_for :user, @cv.user do |user| %>
           <%= user.fields_for :current_location, @cv.user.current_location.present? ? @cv.user.current_location : @cv.user.build_current_location do |location| %>
-            <div class="autocomplete col-12">
+            <div class="autocomplete col-11">
               <div class="form-group mb-5">
                 <%= location.label :original_address, t('content.main.cv.new.location.city'), for: "edit_cv_intro_address", class: 'text-muted d-block' %>
                 <%= location.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "edit_cv_intro_address" %>
