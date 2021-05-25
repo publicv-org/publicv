@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_091803) do
+ActiveRecord::Schema.define(version: 2021_05_20_081805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,18 @@ ActiveRecord::Schema.define(version: 2020_09_20_091803) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
+  create_table "newsletters", force: :cascade do |t|
+    t.string "name"
+    t.string "subject"
+    t.text "content"
+    t.string "recipient_ids"
+    t.datetime "sent_at"
+    t.string "slug"
+    t.string "preference_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "query"
     t.string "slug"
@@ -168,6 +180,8 @@ ActiveRecord::Schema.define(version: 2020_09_20_091803) do
     t.string "unconfirmed_email"
     t.string "subdomain"
     t.string "locale"
+    t.boolean "admin"
+    t.boolean "online_updates"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

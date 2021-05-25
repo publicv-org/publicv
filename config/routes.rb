@@ -42,5 +42,23 @@ Rails.application.routes.draw do
   resources :searches, only: %i[create show]
   resolve('Cv') { [:cv] }
 
+  resources :preferences, only: [:index] do
+    put :update, on: :collection
+  end
+
+  scope '/admin' do
+    resources :newsletters, except: %i[show destroy] do
+      get :preferences, on: :collection
+      get :statistics, on: :member
+      resources :submittal, only: [:create]
+    end
+  end
+  # WIP
+  # get 'newsletters/:newsletter_slug', to: 'newsletters#show', as: :newsletter
+
+  resources :preferences, only: %i[show update] do
+    get :unsubscribe, on: :member
+  end
+
   # resources :locations, except: %i[index show]
 end

@@ -31,6 +31,8 @@ gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
+# editor
+gem 'trix-rails', require: 'trix'
 
 group :development do
   gem 'better_errors'
