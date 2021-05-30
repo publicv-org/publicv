@@ -764,13 +764,6 @@ CREATE INDEX index_searchable_cvs_on_user_id ON public.searchable_cvs USING btre
 
 
 --
--- Name: index_searches_on_query; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_searches_on_query ON public.searches USING btree (query);
-
-
---
 -- Name: index_searches_on_query_and_locale; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -863,6 +856,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200920091803'),
 ('20210506190133'),
 ('20210506190331'),
-('20210506193527');
+('20210506193527'),
+('20210530194229');
 
 

@@ -6,7 +6,7 @@ class Search < ApplicationRecord
   scope :localized, -> { where(locale: I18n.locale.to_s) }
 
   before_validation :sanitize_query
-  validates :query, presence: true, uniqueness: true
+  validates :query, presence: true, uniqueness: { scope: :locale }
   validates :slug, presence: true, uniqueness: true
 
   def results
