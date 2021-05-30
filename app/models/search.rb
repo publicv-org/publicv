@@ -13,6 +13,10 @@ class Search < ApplicationRecord
     Cv.published.full_text_search(query)
   end
 
+  def materialized_views_results
+    SearchableCv.search(locale, query)
+  end
+
   def seo_title
     query.titleize
   end

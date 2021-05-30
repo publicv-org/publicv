@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def create
     if search_param.present?
-      @search = Search.find_or_create_by!(query: sanitized_query, locale: I18n.locale.to_s)
+      @search = Search.find_or_create_by(query: sanitized_query, locale: I18n.locale.to_s)
       redirect_to search_url(@search)
     else
       flash[:error] = t('flash.searches.query_blank')
@@ -13,9 +13,13 @@ class SearchesController < ApplicationController
     @search = Search.friendly.find(params[:id])
     seo_tags_for(@search)
     @search.increment!(:views)
-    @total_results = @search.results.count
-    @results = @search.results.page(params[:page]).per(10)
-    @formatted_results = SearchesService.new(@results).coordinates_list
+    @total_results = @search.materialized_views_results.count
+    @results = @search.materialized_views_results.page(params[:page]).per(10)
+    @formatted_results = @results.map do |result|
+      next unless result.longitude
+
+      result.formatted_map_results
+    end.compact
     respond_to do |format|
       format.html
       format.js { render partial: 'search_results' }

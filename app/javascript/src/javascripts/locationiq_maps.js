@@ -17,11 +17,13 @@ window.initMap = function() {
     });
 
     //Add Navigation controls to the map to the top-right corner of the map
-    nav = new mapboxgl.NavigationControl();
+    nav = new mapboxgl.NavigationControl({
+      showZoom: false //removed map buttons
+    });
     map.addControl(nav, 'top-left');
   });
-
-  if (isHomePage()) map.scrollZoom.disable();
+  // used for disabling scrolling on homepage so that map works using buttons.
+  // if (isHomePage()) map.scrollZoom.disable();
 
   loadMarkersFromPage() // Load search results from home page if any
   multiTouchSupport() // disable drapPan for mobile on single touch
@@ -69,19 +71,20 @@ function clearMarkers() {
 function multiTouchSupport(){
   if ($(window).width() < 767) {
 
-    map.dragPan.disable();
+    map.dragPan.enable(); //used to enable dragging map on mobile.
     map.scrollZoom.disable();
 
-    map.on('touchstart', event => {
-      const e = event.originalEvent;
-      if (e && 'touches' in e) {
-        if (e.touches.length > 1) {
-          map.dragPan.enable();
-        } else {
-          map.dragPan.disable();
-        }
-      }
-    });
+    // Github issue #100 - Not working according to the condition used.
+    // map.on('touchstart', event => {
+    //   const e = event.originalEvent;
+    //   if (e && 'touches' in e) {
+    //     if (e.touches.length > 1) {
+    //       map.dragPan.enable();
+    //     } else {
+    //       map.dragPan.disable();
+    //     }
+    //   }
+    // });
   }
 }
 

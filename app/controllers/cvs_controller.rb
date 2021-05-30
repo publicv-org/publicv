@@ -44,7 +44,7 @@ class CvsController < ApplicationController
       locals: { :@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
       layout: 'pdf'
     )
-    pdf = WickedPdf.new.pdf_from_string(pdf_html)
+    pdf = WickedPdf.new.pdf_from_string(pdf_html, footer: { left: '[page] / [topage]' })
     send_data pdf, filename: 'cv.pdf'
   end
 

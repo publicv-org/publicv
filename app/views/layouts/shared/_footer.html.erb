@@ -1,6 +1,6 @@
 <!-- Footer Container
   ================================================== -->
-<footer>
+<footer class="footer">
   <div class="py-40 py-lg-80 border-top border-bottom">
     <div class="container">
       <div class="row">
@@ -54,3 +54,4 @@
     </p>
   </div>
 </footer>
+<%= render partial: 'cvs/cv_controls' if cv_show_page? && current_user == @cv&.user %>
