@@ -6,3 +6,6 @@ en:
       format: 'invalid format, use only downcase letters.'
       reserved: 'you cannot choose this name for a subdomain because it is a reserved name.'
       character_limit: 'You have exceeded character limit! (%{length})'
+    attributes:
+      name: 'Name: cannot be left blank'
+      recipient_ids: 'Recipient ids: Cannot be left blank'

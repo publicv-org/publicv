@@ -1,4 +1,10 @@
+<%# TODO: errros %>
+<%#= render 'error_messages', obj: @newsletter if @newsletter.errors.any? %>
+
 <%= form_with model: @newsletter do |f| %>
+
+  <div id="new-attachment"></div>
+
   <div class="form-group mt-3">
     <%= f.label :name, class:'ml-5 font-weight-bold' %>
     <%= f.text_field :name, class: 'col-md-8 form-control ml-5' %>
@@ -28,6 +34,6 @@
   <div class="d-flex justify-content-end mb-3">
     <%= link_to 'Back', :back, class: 'btn btn-outline-primary rounded mx-3' %>
     <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-                                                 class: 'btn btn-primary rounded pull-right mr-3 font-weight-bold' %>
+                                                 class: 'btn btn-primary rounded pull-right mr-3 font-weight-bold', id:'newsletter_save' %>
   </div>
 <% end %>
