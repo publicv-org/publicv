@@ -1,6 +1,5 @@
 // Listen for the Trix attachment event to trigger upload
 document.addEventListener("trix-attachment-add", function(event) {
-  // debugger
   var attachment = event.attachment;
   if (attachment.file) {
     return uploadAttachment(attachment);
@@ -36,9 +35,10 @@ function uploadAttachment(attachment) {
     if (xhr.status === 200) {
       var data = JSON.parse(xhr.responseText);
       newsletterID.push(data);
-      return attachment.setAttributes({
-        attachment_id: data.attachment_id,
-      })
+      var contentText = '';
+      var content = document.getElementById("trix_editor_content").value
+      contentText = content + '<img src="' + data.url + '"/>';
+      document.getElementById("trix_editor_content").value = contentText;
     }
   }
 
@@ -55,8 +55,6 @@ window.onload = function () {
       att.value = "newsletter[attachments][" + [i] + "][" + [newsletterID[i].attachment_id] + "]" ;
       news.setAttributeNode(att);
       document.getElementById("new-attachment").appendChild(news);
-      // b =  document.getElementById("form_attachment_id").value = newsletterID[i].attachment_id
-
     };
   });
 }

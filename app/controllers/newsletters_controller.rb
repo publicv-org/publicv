@@ -1,5 +1,5 @@
 class NewslettersController < ApplicationController
-  before_action :set_newsletter, only: %i[edit update] # statistics
+  before_action :set_newsletter, only: %i[edit update]
   before_action :authenticate_user!
 
   def index
@@ -13,7 +13,7 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
-      update_attachments
+      link_attachments
       flash[:success] = I18n.t('flash.create', resource_name: @newsletter)
       redirect_to newsletters_path
     else
@@ -24,7 +24,7 @@ class NewslettersController < ApplicationController
   def edit; end
 
   def update
-    update_attachments
+    link_attachments
     if @newsletter.update(newsletter_params)
       flash[:success] = I18n.t('flash.update', resource_name: @newsletter)
       redirect_to newsletters_path
@@ -36,11 +36,11 @@ class NewslettersController < ApplicationController
   private
 
   def set_newsletter
-    @newsletter = Newsletter.find(params[:id]) # .friendly
+    @newsletter = Newsletter.find(params[:id])
   end
 
-  def update_attachments
-    params[:newsletter][:attachments].each do |x , y|
+  def link_attachments
+    params[:newsletter][:attachments]&.each do |_x, y|
       a = Attachment.find_by(id: y.keys)
       a.update(newsletter_id: @newsletter.id)
     end
@@ -48,6 +48,6 @@ class NewslettersController < ApplicationController
 
   def newsletter_params
     params.require(:newsletter).permit(:name, :subject, :recipient_ids, :content,
-                                       :sent_at, :preference_type, :file)
+                                       :sent_at, :preference_type)
   end
 end

@@ -1,6 +1,5 @@
 class Newsletter < ApplicationRecord
   has_many :attachments, dependent: :restrict_with_exception
-  has_one_attached :file
   validates :name, presence: true,
                    format: { with: /\A\w.*\S\z/,
                              message: I18n.t('errors.attributes.name') }

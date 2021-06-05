@@ -36,15 +36,9 @@
                                 title: 'Show', target: '_blank') do %>
                       <i class="fa fa-eye mx-1" aria-hidden="true"></i>
                     <% end %>
-                    <% if newsletter.sent_at.nil? %>
-                      <%= link_to(newsletter_submittal_index_path(newsletter),
-                                  title: 'Send', method: :post, id: 'send_email') do %>
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                      <% end %>
-                    <% end %>
-                    <%#= link_to(statistics_newsletter_path(newsletter),
-                                title: 'Stats', target: '_blank') do >
-                      <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <%= link_to(newsletter_submittal_index_path(newsletter),
+                                title: 'Send', method: :post, id: 'send_email') do %>
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
                     <% end %>
                   </td>
                 </tr>
