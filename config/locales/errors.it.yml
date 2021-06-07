@@ -7,5 +7,6 @@ it:
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'
       character_limit: 'hai superato il limite di %{length} caratteri.'
     attributes:
-      name: 'Name: cannot be left blank'
-      recipient_ids: 'Recipient ids: Cannot be left blank'
+      name: 'cannot be left blank'
+      recipient_ids: 'cannot be left blank'
+    default_message: 'Cannot be saved due to %{count} errors:'

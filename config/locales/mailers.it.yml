@@ -1,0 +1,3 @@
+it:
+  mailer:
+    subject: '(Subject for mail)'

@@ -25,6 +25,7 @@ class PreferencesController < ApplicationController
 
   def box_flash_message
     return t('.multiple') if permitted_preferences_params.keys.size > 1
+
     t(".#{permitted_preferences_params.keys.first}_#{permitted_preferences_params.values.first}")
   end
 end

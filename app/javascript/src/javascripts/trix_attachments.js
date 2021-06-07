@@ -48,7 +48,6 @@ function uploadAttachment(attachment) {
 window.onload = function () {
   document.getElementById('newsletter_save').addEventListener('click',function(){
     for (let i=0; i<newsletterID.length; i++) {
-      debugger
       var news = document.createElement("input");
       var att = document.createAttribute("name");
       news.setAttribute("type", "hidden");

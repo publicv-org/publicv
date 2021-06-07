@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     put :update, on: :collection
   end
 
-  scope '/admin' do
+  namespace :admins do
     resources :newsletters, except: %i[show destroy] do
       get :preferences, on: :collection
       get :statistics, on: :member

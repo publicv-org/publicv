@@ -149,6 +149,7 @@ it:
       menuitem2: 'Accedi per aggiornare il tuo CV'
       newsletter: 'Newsletter'
       new_newsletter: ' New Newsletter'
+      edit_newsletter: ' Edit Newsletter'
       preference: 'Preference'
     footer:
       links: 'Collegamenti utili'

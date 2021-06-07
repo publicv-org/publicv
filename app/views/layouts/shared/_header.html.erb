@@ -32,7 +32,7 @@
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton" >
                   <% if (current_user.admin)%>
                     <div>
-                      <%= link_to t('layouts.nav.newsletter'), newsletters_path, class: 'dropdown-item py-2 badge-primary-lt' %>
+                      <%= link_to t('layouts.nav.newsletter'), admins_newsletters_path, class: 'dropdown-item py-2 badge-primary-lt' %>
                     </div>
                   <% else %>
                     <div>

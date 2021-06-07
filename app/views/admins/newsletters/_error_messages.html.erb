@@ -1,0 +1,10 @@
+<div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+  <h3>
+    <%= t('errors.default_message', count: obj.errors.count) %>
+  </h3>
+  <ul>
+    <% obj.errors.full_messages.each do |message| %>
+    <li><%= message.html_safe %></li>
+    <% end %>
+  </ul>
+</div>

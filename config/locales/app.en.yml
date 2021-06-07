@@ -149,6 +149,7 @@ en:
       menuitem2: 'Sign in to update your profile and CV'
       newsletter: 'Newsletters'
       new_newsletter: ' New Newsletter'
+      edit_newsletter: ' Edit Newsletter'
       preference: 'Preferences'
     footer:
       links: 'Helpful Links'

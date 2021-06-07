@@ -1,7 +1,6 @@
-<%# TODO: errros %>
-<%#= render 'error_messages', obj: @newsletter if @newsletter.errors.any? %>
+<%= render 'error_messages', obj: @newsletter if @newsletter.errors.any? %>
 
-<%= form_with model: @newsletter do |f| %>
+<%= form_with model: [:admins, @newsletter], local: true  do |f| %>
 
   <div id="new-attachment"></div>
 
