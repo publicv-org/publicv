@@ -2,6 +2,7 @@ module Admins
   class NewslettersController < ApplicationController
     before_action :set_newsletter, except: %i[index]
     before_action :authenticate_user!
+    before_action :authenticate_admin
 
     def index
       @newsletter = Newsletter.order(:created_at)
@@ -36,13 +37,17 @@ module Admins
 
     def set_newsletter
       @newsletter = Newsletter.find_by(id: params[:id])
-      @set_newsletter ||= Newsletter.new
+      @newsletter ||= Newsletter.new
+    end
+
+    def authenticate_admin
+      authorize :newsletter
     end
 
     def link_attachments
       params[:newsletter][:attachments]&.each do |_index, attachment_id|
         @attachment = Attachment.find_by(id: attachment_id.keys)
-        @attachment.update(newsletter_id: @newsletter.id)
+        @attachment.update(resource: @newsletter)
       end
     end
 

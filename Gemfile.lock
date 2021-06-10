@@ -185,6 +185,8 @@ GEM
       mini_mime (>= 0.1.1)
     mailgun-ruby (1.2.0)
       rest-client (~> 2.0.2)
+    mailkick (0.4.3)
+      activesupport (>= 5)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     maxminddb (0.1.22)
@@ -233,6 +235,8 @@ GEM
     psych (3.1.0)
     public_suffix (3.0.3)
     puma (3.12.6)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -412,6 +416,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   mailgun-ruby (~> 1.2.0)
+  mailkick
   maxminddb
   minitest-reporters (~> 1.0.5)
   newrelic_rpm
@@ -421,6 +426,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 3.12)
+  pundit
   rails (~> 5.2.1)
   rails-controller-testing
   rails-i18n

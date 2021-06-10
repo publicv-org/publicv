@@ -1,5 +1,7 @@
 class PreferencesController < ApplicationController
+  authorize_resource class: 'Mailkick::OptOut'
   before_action :authenticate_user!
+  before_action :authenticate_user_type
 
   def index; end
 
@@ -18,6 +20,10 @@ class PreferencesController < ApplicationController
   end
 
   private
+
+  def authenticate_user_type
+    authorize :preference
+  end
 
   def permitted_preferences_params
     params.require(:emails).permit(User::EMAIL_PREFERENCES)

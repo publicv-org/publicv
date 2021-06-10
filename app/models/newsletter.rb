@@ -1,5 +1,7 @@
 class Newsletter < ApplicationRecord
-  has_many :attachments, dependent: :restrict_with_exception
+  has_many :attachments, as: :resource
+  has_many :unsubscribes, class_name: "Mailkick::OptOut", as: :loggable, dependent: :destroy
+
   validates :name, presence: true,
                    format: { with: /\A\w.*\S\z/,
                              message: I18n.t('errors.attributes.name') }

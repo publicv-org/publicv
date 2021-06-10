@@ -6,6 +6,11 @@
     <%= link_to I18n.t('mailer.account_confirmation_link'), confirmation_url(@user, confirmation_token: @user.confirmation_token) %>
     OR
   <% end %>
+  <%= link_to I18n.t('mailer.unsubscribe_link'), unsubscribe_preference_url(Mailkick.generate_token(@user.email, user: @user,
+                                                                                list: { loggable_type: 'Newsletter',
+                                                                                        loggable_id: @newsletter.id,
+                                                                                        preference_type: @newsletter.preference_type }
+                                                                                )) %>
 
   <% if @user.confirmed? %>
     <%= I18n.t('mailer.unsubscribe_text2') %>

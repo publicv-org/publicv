@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_144530) do
+ActiveRecord::Schema.define(version: 2021_06_10_104954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 2021_05_31_144530) do
   end
 
   create_table "attachments", force: :cascade do |t|
-    t.integer "newsletter_id"
+    t.string "resource_type"
+    t.bigint "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["resource_type", "resource_id"], name: "index_attachments_on_resource_type_and_resource_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -161,13 +163,25 @@ ActiveRecord::Schema.define(version: 2021_05_31_144530) do
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
+  create_table "mailkick_opt_outs", force: :cascade do |t|
+    t.string "email"
+    t.string "user_type"
+    t.bigint "user_id"
+    t.boolean "active", default: true, null: false
+    t.string "reason"
+    t.string "list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_mailkick_opt_outs_on_email"
+    t.index ["user_type", "user_id"], name: "index_mailkick_opt_outs_on_user_type_and_user_id"
+  end
+
   create_table "newsletters", force: :cascade do |t|
     t.string "name"
     t.string "subject"
     t.text "content"
     t.string "recipient_ids"
     t.datetime "sent_at"
-    t.string "slug"
     t.string "preference_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

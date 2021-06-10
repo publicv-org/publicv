@@ -4,3 +4,4 @@ en:
       query_blank: please insert a search term in order to look for candidates!
     update: 'Update completed successfully.'
     create: 'Successfully created.'
+    authorization: 'You are not authorized to perform this action.'
