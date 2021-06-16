@@ -1,6 +1,6 @@
 class Newsletter < ApplicationRecord
   has_many :attachments, as: :resource
-  has_many :unsubscribes, class_name: "Mailkick::OptOut", as: :loggable, dependent: :destroy
+  has_many :unsubscribes, class_name: 'Mailkick::OptOut', dependent: :destroy
 
   validates :name, presence: true,
                    format: { with: /\A\w.*\S\z/,

@@ -1,0 +1,26 @@
+<div class="container middle-container-1 cvpage">
+  <div class="row pt-5">
+    <div class="col-md-12">
+      <div class="box-primary mt-3 mb-5">
+        <div class="box-header">
+          <h5 class="box-title my-3 ml-4"><%= t('users.preferences.head') -%></h5>
+        </div>
+        <div class="box-body my-5">
+          <% @email_preferences.each do |key| %>
+            <div class="row">
+              <div class="col-md-2 text-center">
+                <%= check_box_tag "emails[#{key}]", true, @options[:user].send(key), data: { url: preference_path(params[:id]) }, class: 'preference' %>
+              </div>
+              <div class="col-md-4">
+                <%= I18n.t("users.preferences.title.#{key}") %>
+              </div>
+              <div class="col-md-6">
+                <%= I18n.t("users.preferences.info.#{key}") %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

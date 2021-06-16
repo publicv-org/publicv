@@ -6,8 +6,4 @@ class PreferencePolicy < ApplicationPolicy
   def update?
     not_admin?
   end
-
-  def show?
-    not_admin?
-  end
 end

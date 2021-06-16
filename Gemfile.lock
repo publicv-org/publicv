@@ -97,7 +97,7 @@ GEM
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.9)
     crass (1.0.6)
     debug_inspector (0.0.3)
     descendants_tracker (0.0.4)
@@ -133,7 +133,7 @@ GEM
     highline (2.0.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.8.5)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -197,7 +197,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.4)
     minitest-reporters (1.0.20)
       ansi
       builder
@@ -359,7 +359,7 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.7)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext

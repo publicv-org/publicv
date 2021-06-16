@@ -42,8 +42,10 @@ Rails.application.routes.draw do
   resources :searches, only: %i[create show]
   resolve('Cv') { [:cv] }
 
-  resources :preferences, only: [:index] do
-    put :update, on: :collection
+  namespace :users do
+    resources :preferences, only: [:index] do
+      put :update, on: :collection
+    end
   end
 
   namespace :admins do
@@ -53,8 +55,6 @@ Rails.application.routes.draw do
       resources :submittal, only: [:create]
     end
   end
-  # WIP
-  # get 'newsletters/:newsletter_slug', to: 'newsletters#show', as: :newsletter
 
   resources :preferences, only: %i[show update] do
     get :unsubscribe, on: :member
