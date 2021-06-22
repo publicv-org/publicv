@@ -6,7 +6,7 @@
     <% end %>
     <div class="row mt-3">
       <div class="col-md-12">
-        <div id="matters" class="box box-primary mb-4">
+        <div class="box box-primary mb-4">
           <%= form_tag admins_newsletters_path, method: 'get' do %>
             <table class="w-100 my-2">
               <thead>
@@ -20,7 +20,7 @@
                 </tr>
               </thead>
               <tbody>
-              <% @newsletter.each do |newsletter| %>
+              <% @newsletters.each do |newsletter| %>
                 <tr>
                   <td><%= newsletter.id %></td>
                   <td><%= newsletter.name %></td>

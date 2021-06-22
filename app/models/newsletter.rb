@@ -8,4 +8,5 @@ class Newsletter < ApplicationRecord
   validates :recipient_ids, presence: true,
                             format: { with: /\A[0-9,\s]+\z/,
                                       message: I18n.t('errors.attributes.recipient_ids') }
+  enum status: { failure: 0, success: 1 }
 end

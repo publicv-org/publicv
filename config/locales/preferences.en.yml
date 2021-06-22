@@ -3,9 +3,9 @@ en:
     preferences:
       head: Email preferences:- which notification you would like to receive via email?
       title:
-        online_updates: 'Online updates'
+        email_preference_online_updates: 'Online updates'
       info:
-        online_updates: 'Info related to online updates'
+        email_preference_online_updates: 'Info related to online updates'
       update:
-        online_updates_true: 'Online updates are set true for you'
-        online_updates_false: 'Online updates are set false for you'
+        email_preference_online_updates_true: 'Online updates are set true for you'
+        email_preference_online_updates_false: 'Online updates are set false for you'

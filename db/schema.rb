@@ -183,6 +183,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_104954) do
     t.string "recipient_ids"
     t.datetime "sent_at"
     t.string "preference_type"
+    t.integer "status", default: 0, null: false
+    t.json "spam_errors"
+    t.string "whitelisted_rules"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -222,7 +225,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_104954) do
     t.string "subdomain"
     t.string "locale"
     t.boolean "admin"
-    t.boolean "online_updates"
+    t.boolean "email_preference_online_updatesce_online_updates"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

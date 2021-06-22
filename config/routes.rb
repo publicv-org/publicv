@@ -47,15 +47,12 @@ Rails.application.routes.draw do
       put :update, on: :collection
     end
   end
-
   namespace :admins do
     resources :newsletters, except: %i[show destroy] do
       get :preferences, on: :collection
-      get :statistics, on: :member
       resources :submittal, only: [:create]
     end
   end
-
   resources :preferences, only: %i[show update] do
     get :unsubscribe, on: :member
   end

@@ -3,7 +3,7 @@ class PreferencesController < ApplicationController
   before_action :set_email
 
   def show
-    @email_preferences = @options[:user].class.name.constantize::EMAIL_PREFERENCES
+    @email_preferences = User::EMAIL_PREFERENCES
   end
 
   def unsubscribe
@@ -24,7 +24,7 @@ class PreferencesController < ApplicationController
 
   def set_email
     @email, user_id, user_type = Mailkick.message_verifier.verify(params[:id])
-    @user = user_type.constantize.find(user_id)
+    @user = User.find_by(id: user_id)
     @options = {
       email: @email,
       user: @user

@@ -224,6 +224,7 @@ GEM
     pg_search (2.1.4)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
+    postmark-spam_check (0.1.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -423,6 +424,7 @@ DEPENDENCIES
   paperclip
   pg (>= 0.18, < 2.0)
   pg_search
+  postmark-spam_check
   pry-byebug
   pry-rails
   puma (~> 3.12)

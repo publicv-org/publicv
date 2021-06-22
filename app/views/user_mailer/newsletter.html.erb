@@ -1,3 +1,5 @@
+<%= @newsletter.content.html_safe %>
+
 <div style="text-align: center;">
   <% if @user.confirmed? %>
     <%= I18n.t('mailer.unsubscribe_text1') %>
