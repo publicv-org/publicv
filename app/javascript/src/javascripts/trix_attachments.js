@@ -12,14 +12,11 @@ function uploadAttachment(attachment) {
   // Create our form data to submit
   var file = attachment.file;
   var form = new FormData;
-  // form.append("attachment_type", file.type);
-  form.append("attachment[file]", file); // change to suit your circumstances!!
+  form.append("attachment[file]", file);
 
   // Create our XHR request
   var xhr = new XMLHttpRequest;
   xhr.open("POST", "/attachments", true);
-
-  // I am posting to the doucments route - your situation may be different!
 
   var csrfToken = $('meta[name="csrf-token"]').attr('content');
   xhr.setRequestHeader("X-CSRF-Token", csrfToken);  
@@ -46,14 +43,17 @@ function uploadAttachment(attachment) {
 }
 
 window.onload = function () {
-  document.getElementById('newsletter_save').addEventListener('click',function(){
-    for (let i=0; i<newsletterID.length; i++) {
-      var news = document.createElement("input");
-      var att = document.createAttribute("name");
-      news.setAttribute("type", "hidden");
-      att.value = "newsletter[attachments][" + [i] + "][" + [newsletterID[i].attachment_id] + "]" ;
-      news.setAttributeNode(att);
-      document.getElementById("new-attachment").appendChild(news);
-    };
-  });
+  var save_newsletter = document.getElementById('newsletter_save')
+  if (save_newsletter){
+    save_newsletter.addEventListener('click',function(){
+      for (let i=0; i<newsletterID.length; i++) {
+        var news = document.createElement("input");
+        var att = document.createAttribute("name");
+        news.setAttribute("type", "hidden");
+        att.value = "newsletter[attachments][" + [i] + "][" + [newsletterID[i].attachment_id] + "]" ;
+        news.setAttributeNode(att);
+        document.getElementById("new-attachment").appendChild(news);
+      };
+    });
+  }
 }

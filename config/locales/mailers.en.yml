@@ -1,6 +1,5 @@
 en:
   mailer:
-    subject: '(Subject for mail)'
     unsubscribe_text1: 'Unsubscribe_part_1'
     unsubscribe_text2: 'Unsubscribe_part_2'
     unsubscribe_link: 'Unsubscribe'

@@ -18,4 +18,8 @@ class NewsletterPolicy < ApplicationPolicy
   def update?
     admin?
   end
+
+  def show?
+    admin?
+  end
 end

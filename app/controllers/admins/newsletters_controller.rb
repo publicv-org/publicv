@@ -33,6 +33,11 @@ module Admins
       end
     end
 
+    def show
+      @newsletter = Newsletter.find_by(id: params[:id])
+      redirect_to root_path unless @newsletter
+    end
+
     private
 
     def set_newsletter

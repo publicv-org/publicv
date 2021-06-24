@@ -7,12 +7,17 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 window.updatePreference = function updatePreference(e) {
-  $.ajax({
-    url: e.getAttribute("data-url"),
-    type: 'PUT',
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content)
-    },
-    data: e.getAttribute("name") + '=' + e.checked
-  });
+  var data = e.getAttribute("name")
+  var check = e.checked
+  var form = new FormData;
+  form.append(data, check)
+  url = e.getAttribute("data-url");
+
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("PUT", url, true);
+
+  var csrfToken = $('meta[name="csrf-token"]').attr('content');
+  xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
+
+  xmlHttp.send(form)
 }

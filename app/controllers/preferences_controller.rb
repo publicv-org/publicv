@@ -1,5 +1,4 @@
 class PreferencesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_email
 
   def show
@@ -23,7 +22,7 @@ class PreferencesController < ApplicationController
   end
 
   def set_email
-    @email, user_id, user_type = Mailkick.message_verifier.verify(params[:id])
+    @email, user_id = Mailkick.message_verifier.verify(params[:id])
     @user = User.find_by(id: user_id)
     @options = {
       email: @email,

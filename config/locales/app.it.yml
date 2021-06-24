@@ -150,6 +150,7 @@ it:
       newsletter: 'Newsletter'
       new_newsletter: ' New Newsletter'
       edit_newsletter: ' Edit Newsletter'
+      show_newsletter: 'Newsletter Content'
       preference: 'Preference'
     footer:
       links: 'Collegamenti utili'

@@ -41,14 +41,13 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[new create]
   resources :searches, only: %i[create show]
   resolve('Cv') { [:cv] }
-
   namespace :users do
     resources :preferences, only: [:index] do
       put :update, on: :collection
     end
   end
   namespace :admins do
-    resources :newsletters, except: %i[show destroy] do
+    resources :newsletters, except: %i[destroy] do
       get :preferences, on: :collection
       resources :submittal, only: [:create]
     end

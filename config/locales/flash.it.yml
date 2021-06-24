@@ -5,3 +5,4 @@ it:
     update: 'Update completed successfully.'
     create: 'Successfully created.'
     authorization: 'You are not authorized to perform this action.'
+    send_newsletter: 'Cannot send newsletter as user has not opted for online update preference'
