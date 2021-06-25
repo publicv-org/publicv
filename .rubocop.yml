@@ -52,5 +52,6 @@ AllCops:
   - 'db/**/*'
   - 'vendor/**/*'
   - 'node_modules/**/*'
+  - 'lib/tasks/heroku_clear_tasks.rake'
 
 inherit_from: .rubocop_todo.yml

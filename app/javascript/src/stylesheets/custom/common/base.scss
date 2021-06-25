@@ -34,7 +34,7 @@ body {
   padding-top: 4.875rem;
 }
 .middle-container-2 {
-  padding-top: 9.75rem;
+  padding-top: 5.5rem;
 }
 .input-with-icon {
   position: relative;
@@ -68,7 +68,7 @@ body {
 
 @include media-breakpoint-down(sm){
   .middle-container-2{
-    padding-top: 13.5rem;
+    padding-top: 6rem;
   }
 
   .w-50 {
@@ -128,14 +128,11 @@ $nav-font-color: black;
 // Logo and branding
 .brand {
   position: absolute;
-  padding-left: 20px;
   float: left;
   line-height: $nav-height;
-  text-transform: uppercase;
-  font-size: 1.4em;
+  font-size: 25px;
   a,
   a:visited {
-    color: $nav-font-color;
     text-decoration: none;
   }
 }
@@ -292,6 +289,19 @@ nav {
 }
 .nobreak {
   page-break-inside: avoid
+}
+.bottom-bar{
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+}
+.footer{
+  padding-bottom: 30px;
+}
+.brand-icon{
+  color: #91076c;
+  text-transform: capitalize;
 }
 .badge-pill-cv{
   border-radius: 13px;

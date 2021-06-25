@@ -3,8 +3,11 @@
 <div class="position-fixed z-index-fixed w-100 bg-white shadow-sm">
   <section class="navigation">
     <div class="container">
-      <div class="brand ">
+      <div class="brand ml-1">
         <%= link_to(root_domain_url ) do %>
+          <% if current_user.present? %>
+              <span class="brand-icon"><%= current_user.first_name %>'s </span>
+          <% end %>
           <%= image_pack_tag 'images/logo.svg' %>
         <% end %>
       </div>
@@ -77,7 +80,6 @@
       </nav>
     </div>
   </section>
-    <%= render partial: 'cvs/topbar_controls' if cv_show_page? && current_user == @cv&.user %>
 </div>
 <!-- Header Container / End -->
 <%= render partial: 'layouts/shared/js_vars' %>

@@ -1,0 +1,22 @@
+{
+  "name": "Publicv",
+  "description": "PubliCV is the open source platform to help Jobseekers.",
+  "website": "https://publicv.org",
+  "repository": "https://github.com/publicv-org/publicv.git",
+  "logo": "https://publicv.org/packs/images/logo-5b27f2a1351953d8f820754ff58586a0.svg",
+  "buildpacks": [
+    { "url": "heroku/ruby" },
+    { "url": "heroku/google-chrome" },
+    { "url": "heroku/chromedriver" }
+  ],
+   "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "bin/rails assets:precompile",
+        "test": "bin/fastcheck"
+      },
+      "env": {  "POSTGRESQL_VERSION": "13", "REDIS_VERSION": "5"  },
+      "addons": ["heroku-postgresql:in-dyno", "heroku-redis:in-dyno"]
+    }
+  }
+}

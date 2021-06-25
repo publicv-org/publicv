@@ -34,8 +34,7 @@ So far so good. Now that you are all set up, you can begin to install it.
 Run the standard RoR app setup commands:
 
 1. `bundle install`
-2. `rake db:create`
-3. `rake db:migrate`
+2. `bundle exec rake db:structure:load`
 
 # Contributing
 

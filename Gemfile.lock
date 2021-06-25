@@ -194,7 +194,9 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.4)
@@ -221,10 +223,9 @@ GEM
     parser (2.6.2.0)
       ast (~> 2.4.0)
     pg (1.1.4)
-    pg_search (2.1.4)
-      activerecord (>= 4.2)
-      activesupport (>= 4.2)
-    postmark-spam_check (0.1.0)
+    pg_search (2.3.2)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -313,6 +314,9 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    scenic (1.5.4)
+      activerecord (>= 4.0.0)
+      railties (>= 4.0.0)
     scss_lint (0.57.1)
       rake (>= 0.9, < 13)
       sass (~> 3.5, >= 3.5.5)
@@ -424,7 +428,6 @@ DEPENDENCIES
   paperclip
   pg (>= 0.18, < 2.0)
   pg_search
-  postmark-spam_check
   pry-byebug
   pry-rails
   puma (~> 3.12)
@@ -435,6 +438,7 @@ DEPENDENCIES
   recaptcha
   reek
   rubocop
+  scenic
   scss_lint
   selenium-webdriver
   shoulda-matchers
@@ -455,4 +459,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.2.17
