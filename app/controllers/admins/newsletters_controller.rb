@@ -1,6 +1,6 @@
 module Admins
   class NewslettersController < ApplicationController
-    before_action :set_newsletter, except: %i[index create]
+    before_action :newsletter, except: %i[index create]
     before_action :authenticate_user!
     before_action :authenticate_admin
 
@@ -40,7 +40,7 @@ module Admins
 
     private
 
-    def set_newsletter
+    def newsletter
       @newsletter = Newsletter.find_by(id: params[:id])
       @newsletter ||= Newsletter.new
     end

@@ -1,6 +1,8 @@
 module Admins
   class SubmittalController < ApplicationController
+    before_action :authenticate_user!
     def create
+      authorize :submittal
       newsletter = Newsletter.find_by(id: params[:newsletter_id])
       newsletter.recipient_ids.split(',').map(&:to_i).each do |recipient_id|
         if set_preferences(newsletter.id, recipient_id)

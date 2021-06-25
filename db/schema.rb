@@ -183,9 +183,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_104954) do
     t.string "recipient_ids"
     t.datetime "sent_at"
     t.string "preference_type"
-    t.integer "status", default: 0, null: false
-    t.json "spam_errors"
-    t.string "whitelisted_rules"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

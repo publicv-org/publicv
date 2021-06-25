@@ -6,7 +6,6 @@ MAIL_FROM: 'example@reply.com'
 MAILGUN_API_KEY: 'api key'
 MAILGUN_DOMAIN: 'domain'
 MAIL_REPLY_TO: 'example@reply.com'
-SPAM_SCORE: 'base spam score'
 
 # Secrets
 DEVISE_PEPPER: 'rails secret'
