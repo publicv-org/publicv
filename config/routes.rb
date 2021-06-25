@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
   }
-
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
     resources :educations, except: %i[index show] do
@@ -55,7 +54,6 @@ Rails.application.routes.draw do
   resources :preferences, only: %i[show update] do
     get :unsubscribe, on: :member
   end
-
   resources :attachments, only: [:create]
   # resources :locations, except: %i[index show]
 end
