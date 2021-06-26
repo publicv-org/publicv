@@ -1,4 +1,4 @@
-<%= render 'error_messages', obj: @newsletter if @newsletter.errors.any? %>
+<%= render 'shared/error_messages', obj: @newsletter if @newsletter.errors.any? %>
 
 <%= form_with model: [:admins, @newsletter], local: true  do |f| %>
 
