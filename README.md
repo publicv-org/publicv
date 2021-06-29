@@ -1,7 +1,11 @@
 # PubliCV
+## One website for each job seeker
+
 PubliCV is the open source platform to help Jobseekers find their next Employer, and vice versa, _directly_ (with no intermediaries). See: https://publicv.org
 
 The source code of the core service is released under the MIT license (see LICENSE and the [term of service](https://publicv.org/legal/terms) for more).
+
+**PubliCV** is a pledge [published](https://pledgeviewer.eu/pledge/initiative/659) on the **Digital Skills and Jobs Coalition** of the **European Commission**.
 
 ## Trademarks policy
 
