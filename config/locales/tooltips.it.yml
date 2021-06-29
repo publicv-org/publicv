@@ -1,9 +1,9 @@
 it:
   tooltips:
     info:
-      summary: 'Details about your professional life, different experiences and your strengths.'
-      experience: 'Details about your work in company and working experience with the company.'
-      education: 'Details about your degree and new learnings in the particular field.'
+      summary: 'Racconta, in poche parole, chi sei e dove vuoi andare dal punto di vista lavorativo.'
+      experience: 'Le tue esperienze lavorative'
+      education: 'La tua formazione'
       extras:
-        interests: 'Short description about your co-curricular interests and strengths.'
-        future_plans: 'Short description about your future plans which you have in ur mind.'
+        interests: 'Breve descrizione sui tuoi interessi lavorativi ed extra-lavorativi.'
+        future_plans: 'Cosa vuoi realizzare e dove/come vorresti essere fra 3 anni?'
