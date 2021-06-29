@@ -1,9 +1,10 @@
 en:
   tooltips:
-    info:
-      summary: 'Details about your professional life, different experiences and your strengths.'
-      experience: 'Details about your work in company and working experience with the company.'
-      education: 'Details about your degree and new learnings in the particular field.'
-      extras:
-        interests: 'Short description about your co-curricular interests and strengths.'
-        future_plans: 'Short description about your future plans which you have in ur mind.'
+    summary: 'Tell, in a nutshell, how you are and were would you like to go from a professional perspective.'
+    experience:
+      description: 'The most important details about this professional experience, what where your tasks, responsibilities and what did you learn?'
+    education:
+      description: 'Thell the most important details about this educational experience, what did you learn?'
+    extras:
+      interests: 'Short description of both your job-related and job-unrelated interests.'
+      future_plans: 'What would you want to accomplish in the next 3 years, from a professional perspective?'

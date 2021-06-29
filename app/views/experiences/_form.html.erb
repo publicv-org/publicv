@@ -50,7 +50,7 @@
           <div class="form-group mb-5">
             <div class="d-flex justify-content-between">
               <%= f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description", class: 'text-muted d-block'%>
-              <%= info_icon('experience') %>
+              <%= tooltip_icon('experience.description') %>
             </div>
             <%= f.text_area :description, class: 'form-control limit-desc', rows: 8, id: "#{id}_description" %>
             <span class="text-muted">0/1000</span>
