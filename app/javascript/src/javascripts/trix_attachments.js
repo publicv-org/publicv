@@ -18,8 +18,7 @@ function uploadAttachment(attachment) {
   var xhr = new XMLHttpRequest;
   xhr.open("POST", "/attachments", true);
 
-  var csrfToken = $('meta[name="csrf-token"]').attr('content');
-  xhr.setRequestHeader("X-CSRF-Token", csrfToken);  
+  xhr.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
 
   // Report file uploads back to Trix
   xhr.upload.onprogress = function(event) {

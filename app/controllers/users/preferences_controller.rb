@@ -7,12 +7,7 @@ module Users
 
     def update
       current_user.update(permitted_preferences_params)
-      @box_flash_message = box_flash_message
-
-      respond_to do |format|
-        format.js {}
-        format.html { redirect_to request.referer }
-      end
+      redirect_back(fallback_location: users_preferences_path, notice: box_flash_message)
     end
 
     private

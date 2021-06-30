@@ -22,11 +22,12 @@ class PreferencesController < ApplicationController
   end
 
   def set_email
-    @email, user_id = Mailkick.message_verifier.verify(params[:id])
+    @email, user_id, _user_type, @list = Mailkick.message_verifier.verify(params[:id])
     @user = User.find_by(id: user_id)
     @options = {
       email: @email,
-      user: @user
+      user: @user,
+      list: @list
     }
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     render plain: 'Link expired or invalid', status: :bad_request
