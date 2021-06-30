@@ -51,7 +51,7 @@ module Admins
 
     def link_attachments
       params[:newsletter][:attachments]&.each do |_index, attachment_id|
-        attachment = Attachment.find_by(id: attachment_id.keys)
+        attachment = Attachment.find_by(id: attachment_id)
         attachment.update(resource: @newsletter)
       end
     end

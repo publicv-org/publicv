@@ -44,12 +44,13 @@ function uploadAttachment(attachment) {
 window.onload = function () {
   var save_newsletter = document.getElementById('newsletter_save')
   if (save_newsletter){
-    save_newsletter.addEventListener('click',function(){
-      for (let i=0; i<newsletterID.length; i++) {
+    save_newsletter.addEventListener('click',function() {
+      for (let i = 0; i < newsletterID.length; i++) {
         var news = document.createElement("input");
         var att = document.createAttribute("name");
         news.setAttribute("type", "hidden");
-        att.value = "newsletter[attachments][" + [i] + "][" + [newsletterID[i].attachment_id] + "]" ;
+        att.value = "newsletter[attachments][" + [i] + "]";
+        news.value = newsletterID[i].attachment_id
         news.setAttributeNode(att);
         document.getElementById("new-attachment").appendChild(news);
       };

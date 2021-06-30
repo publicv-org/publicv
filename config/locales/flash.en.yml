@@ -5,4 +5,8 @@ en:
     update: 'Update completed successfully.'
     create: 'Successfully created.'
     authorization: 'You are not authorized to perform this action.'
-    send_newsletter: 'Cannot send newsletter as user has not opted for online update preference'
+    admins:
+      submittal:
+        create:
+          success: Successfully send newsletter to users %{opted_user_ids}.
+          fail: Cannot send newsletter for users %{opt_out_user_ids} as user hasn't opted for email preference.
