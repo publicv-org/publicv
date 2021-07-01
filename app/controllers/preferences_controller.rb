@@ -12,7 +12,6 @@ class PreferencesController < ApplicationController
 
   def update
     @options[:user].update(permitted_preferences_params)
-    head :ok
   end
 
   private
