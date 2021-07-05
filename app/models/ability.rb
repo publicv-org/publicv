@@ -5,8 +5,10 @@ class Ability
     guest_permissions
     return unless current_user
 
-    return admin_permissions if current_user.admin?
-
+    if current_user.admin?
+      admin_permissions
+      return
+    end
     user_permissions
   end
 
