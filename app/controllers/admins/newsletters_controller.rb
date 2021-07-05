@@ -1,8 +1,8 @@
 module Admins
   class NewslettersController < ApplicationController
-    before_action :newsletter, except: %i[index create]
     before_action :authenticate_user!
-    before_action :authenticate_admin
+    authorize_resource
+    before_action :newsletter, except: %i[index create]
 
     def index
       @newsletters = Newsletter.order(:created_at)
@@ -43,10 +43,6 @@ module Admins
     def newsletter
       @newsletter = Newsletter.find_by(id: params[:id])
       @newsletter ||= Newsletter.new
-    end
-
-    def authenticate_admin
-      authorize :newsletter
     end
 
     def link_attachments

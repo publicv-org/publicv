@@ -1,4 +1,5 @@
 class PreferencesController < ApplicationController
+  authorize_resource class: 'Mailkick::OptOut'
   before_action :set_email
 
   def show

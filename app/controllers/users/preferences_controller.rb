@@ -1,7 +1,7 @@
 module Users
   class PreferencesController < ApplicationController
     before_action :authenticate_user!
-    before_action :authenticate_user_type
+    authorize_resource class: 'User'
 
     def index; end
 
@@ -11,10 +11,6 @@ module Users
     end
 
     private
-
-    def authenticate_user_type
-      authorize :preference
-    end
 
     def permitted_preferences_params
       params.require(:emails).permit(User::EMAIL_PREFERENCES)

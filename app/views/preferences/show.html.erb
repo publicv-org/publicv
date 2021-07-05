@@ -11,7 +11,7 @@
               <div class="col-md-2 text-center">
                 <%= form_tag preference_path, method: :put do %>
                   <%= hidden_field_tag "emails[#{key}]", 'false' %>
-                  <%= check_box_tag "emails[#{key}]", true, current_user.send(key), onchange: "this.form.submit();", class: 'preference' %>
+                  <%= check_box_tag "emails[#{key}]", true, @options[:user].send(key), onchange: "this.form.submit();", class: 'preference' %>
                 <% end %>
               </div>
               <div class="col-md-4">

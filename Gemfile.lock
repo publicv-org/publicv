@@ -79,6 +79,7 @@ GEM
     brakeman (4.5.0)
     builder (3.2.4)
     byebug (11.0.1)
+    cancancan (3.3.0)
     capybara (3.16.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -237,8 +238,6 @@ GEM
     psych (3.1.0)
     public_suffix (3.0.3)
     puma (3.12.6)
-    pundit (2.1.0)
-      activesupport (>= 3.0.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -405,6 +404,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.1.0)
   brakeman
+  cancancan
   capybara
   capybara-selenium
   devise
@@ -431,7 +431,6 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 3.12)
-  pundit
   rails (~> 5.2.1)
   rails-controller-testing
   rails-i18n

@@ -1,9 +1,9 @@
 module Admins
   class SubmittalController < ApplicationController
     before_action :authenticate_user!
+    authorize_resource class: 'Newsletter'
 
     def create
-      authorize :submittal
       newsletter = Newsletter.find_by(id: params[:newsletter_id])
       opted_user_ids = []
       recipient_ids = newsletter.recipient_ids.split(',').map(&:to_i)
