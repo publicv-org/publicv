@@ -1,6 +1,5 @@
 module Users
   class PreferencesController < ApplicationController
-    before_action :authenticate_user!
     authorize_resource class: 'User'
 
     def index; end

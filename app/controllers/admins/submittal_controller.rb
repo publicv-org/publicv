@@ -1,6 +1,5 @@
 module Admins
   class SubmittalController < ApplicationController
-    before_action :authenticate_user!
     authorize_resource class: 'Newsletter'
 
     def create

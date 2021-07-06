@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
-  before_action :authenticate_user!
   authorize_resource
+
   def create
     attachment = Attachment.create(attachment_params)
     render json: { attachment_id: attachment.id, url: rails_blob_path(attachment.file) }

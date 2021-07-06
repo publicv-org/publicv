@@ -1,6 +1,5 @@
 module Admins
   class NewslettersController < ApplicationController
-    before_action :authenticate_user!
     authorize_resource
     before_action :newsletter, except: %i[index create]
 
