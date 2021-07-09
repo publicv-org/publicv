@@ -3,7 +3,7 @@ class Cv < ApplicationRecord
 
   ABOUT_MAX_LENGTH = 1000
   INFO_MAX_LENGTH = 255
-  CV_SECTIONS = %w[intro summary skills extras authorization].freeze
+  CV_SECTIONS = %w[intro summary skills extras authorization headshot].freeze
 
   belongs_to :user
   has_many :educations, dependent: :destroy
@@ -21,7 +21,7 @@ class Cv < ApplicationRecord
   accepts_nested_attributes_for :user
 
   has_attached_file :headshot,
-                    styles: { default: '185x185#', large: '370x370#' },
+                    styles: { default: '185x185#', large: '370x370#', quality: '100' },
                     default_url: '/images/:style/missing_headshot.png'
   validates_attachment :headshot, size: { in: 40..4000.kilobytes },
                                   content_type: { content_type: ['image/jpeg', 'image/png'] }

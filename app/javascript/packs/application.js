@@ -26,7 +26,6 @@
 
 
 import 'babel-polyfill';
-import 'bootstrap/dist/js/bootstrap';
 import '../src/javascripts/address_autocomplete';
 import '../src/javascripts/locationiq_maps';
 import '../src/javascripts/custom';
@@ -42,6 +41,7 @@ Rails.start();
 Turbolinks.start();
 
 import 'jquery-ui-dist/jquery-ui';
+import 'bootstrap/dist/js/bootstrap';
 
 $(function () {
   console.log('Hello World from Webpacker');

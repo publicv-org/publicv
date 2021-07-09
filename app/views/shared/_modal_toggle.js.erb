@@ -2,3 +2,7 @@ if (!$('<%= id %>').length) {
   $('main').append("<%= yield %>");
 }
 $('<%= id %>').modal('toggle');
+
+$('#edit_cv_headshot').on('hidden.bs.modal', function () {
+  window.location.reload();
+});
