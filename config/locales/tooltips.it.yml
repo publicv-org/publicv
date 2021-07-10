@@ -1,0 +1,10 @@
+it:
+  tooltips:
+    summary: 'Racconta, in poche parole, chi sei e dove vuoi andare dal punto di vista lavorativo.'
+    experience:
+      description: 'Racconta i dettagli più importanti di questa esperienza lavorativa, di cosa ti sei occupato e cosa hai imparato?'
+    education:
+      description: 'Racconta i dettagli più importanti di questa esperienza formativa, cosa hai imparato?'
+    extras:
+      interests: 'Breve descrizione sui tuoi interessi lavorativi ed extra-lavorativi.'
+      future_plans: 'Cosa vuoi realizzare e dove/come vorresti essere fra 3 anni?'

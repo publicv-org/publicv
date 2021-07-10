@@ -25,6 +25,13 @@ module CvsHelper
     cv_obj.publish_last_name? ? cv_obj.full_name : cv_obj.abbr_name
   end
 
+  def tooltip_icon(title)
+    content_tag(:div, class: 'tool-tip text-muted mr-2', data: { toggle: 'tooltip', placement: 'left' },
+                      title: t("tooltips.#{title}")) do
+      content_tag(:i, '', class: 'info-icon fas fa-info-circle')
+    end
+  end
+
   private
 
   def get_period(start_date, end_date)

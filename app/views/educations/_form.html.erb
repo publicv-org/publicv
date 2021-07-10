@@ -33,7 +33,10 @@
       <div class="row">
         <div class="col-12">
           <div class="form-group mb-5">
-            <%= f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description", class: 'text-muted d-block'%>
+            <div class="d-flex justify-content-between">
+              <%= f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description", class: 'text-muted d-block'%>
+              <%= tooltip_icon('education.description') %>
+            </div>
             <%= f.text_area :description, class: 'form-control limit-desc', rows: 8, id: "#{id}_description" %>
             <span class="text-muted">0/1000</span>
           </div>

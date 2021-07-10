@@ -6,14 +6,20 @@
         <div class="row">
           <div class="col-12">
             <div class="form-group mb-5">
-              <%= f.label :interests, t('content.main.cv.show.interests'), class: 'text-muted d-block' %>
+              <div class="d-flex justify-content-between">
+                <%= f.label :interests, t('content.main.cv.show.interests'), class: 'text-muted d-block' %>
+                <%= tooltip_icon('extras.interests') %>
+              </div>
               <%= f.text_area :interests, class: 'form-control form-control-lg limit-desc-extras', rows: 8, "aria-label" => "interests" %>
                 <span class="text-muted">0/255</span>
             </div>
           </div>
           <div class="col-12">
             <div class="form-group mb-5">
-              <%= f.label :future_plans, t('content.main.cv.show.future_plans'), class: 'text-muted d-block' %>
+              <div class="d-flex justify-content-between">
+                <%= f.label :future_plans, t('content.main.cv.show.future_plans'), class: 'text-muted d-block' %>
+                <%= tooltip_icon('extras.future_plans') %>
+              </div>
               <%= f.text_area :future_plans, class: 'form-control limit-desc-extras', rows: 8, "aria-label" => "future_plans" %>
                 <span class="text-muted">0/255</span>
             </div>
