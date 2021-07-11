@@ -31,6 +31,9 @@ gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
+# Error notification
+gem 'sentry-rails'
+gem 'sentry-ruby'
 
 gem 'scenic'
 
