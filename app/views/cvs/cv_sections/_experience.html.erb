@@ -15,7 +15,7 @@
       <% experiences.each_with_index do |experience, index| %>
         <% has_website = experience.website_url.present? %>
 
-        <div class="d-flex flex-row font-size-14 pt-5" id='experience_<%= experience.id %>'>
+        <div class="list_exp d-flex flex-row font-size-14 pt-5" id='experience_<%= experience.id %>' data-id="<%= experience.id %>">
           <span class="badge badge-light h-100 p-1 mr-2 border">
             <% if has_website %>
               <img src="https://www.google.com/s2/favicons?domain=<%= experience.website_url %>" />
@@ -46,6 +46,7 @@
             <%= link_to cv_experience_path(experience), method: :delete, data: { confirm: t('confirmation') } do %>
               <span class="badge rounded-circle badge-primary-light text-primary p-2 mx-1"><i class="fas fa-trash-alt"></i></span>
             <% end %>
+            <h4 class="text-primary h-100 mx-2 sort_handler" id="sort_exp_<%= experience.id %>"><i class="fas fa-sort" ></i></h4>
           <% end %>
         </div>
       <% end %>

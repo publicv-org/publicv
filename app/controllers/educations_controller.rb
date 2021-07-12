@@ -34,7 +34,8 @@ class EducationsController < ApplicationController
   end
 
   def update_positions
-    params[:education].each_with_index do |edu_id, index|
+    sort_edu_params = JSON.parse(params[:education])
+    sort_edu_params.each_with_index do |edu_id, index|
       education = Education.find_by(id: edu_id)
       education&.update!(position: index)
     end

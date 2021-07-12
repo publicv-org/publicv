@@ -34,7 +34,8 @@ class ExperiencesController < ApplicationController
   end
 
   def update_positions
-    params[:experience].each_with_index do |exp_id, index|
+    sort_exp_params = JSON.parse(params[:experience])
+    sort_exp_params.each_with_index do |exp_id, index|
       experience = Experience.find_by(id: exp_id)
       experience&.update!(position: index)
     end

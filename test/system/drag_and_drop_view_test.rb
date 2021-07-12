@@ -18,8 +18,8 @@ class DragAndDropViewTest < ApplicationSystemTestCase
 
     visit cv_section_path(@user.subdomain)
 
-    source = page.driver.browser.find_element(id: "experience_#{experience1.id}")
-    target = page.driver.browser.find_element(id: "experience_#{experience3.id}")
+    source = page.driver.browser.find_element(id: "sort_exp_#{experience1.id}")
+    target = page.driver.browser.find_element(id: "sort_exp_#{experience3.id}")
 
     page.driver.browser.action.drag_and_drop(source, target).perform
 
@@ -45,8 +45,8 @@ class DragAndDropViewTest < ApplicationSystemTestCase
 
     visit cv_section_path(@user.subdomain)
 
-    source = page.driver.browser.find_element(id: "education_#{education2.id}")
-    target = page.driver.browser.find_element(id: "education_#{education1.id}")
+    source = page.driver.browser.find_element(id: "sort_ed_#{education2.id}")
+    target = page.driver.browser.find_element(id: "sort_ed_#{education1.id}")
 
     page.driver.browser.action.drag_and_drop(source, target).perform
 

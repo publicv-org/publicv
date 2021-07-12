@@ -12,6 +12,7 @@
     "popper.js": "^1.14.4",
     "rails-ujs": "^5.2.1",
     "simple-line-icons": "^2.4.1",
+    "sortablejs": "^1.13.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
