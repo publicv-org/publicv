@@ -17,10 +17,10 @@ en:
       jobseeker_cta: Create Your CV Now
       jobseeker: Jobseeker
       jobseeker_cta: Create your publiCV now
-      jobseeker_copy_1: |
+      jobseeker_copy_2: |
         Rather than being left in the drawer of some kind of agencies with your permission, your CV will be <b>public</b>.
           Just like ours: <a href="https://duccio.publicv.org" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.org" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.org" class="text-primary">Anuj</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
-      jobseeker_copy_2: |
+      jobseeker_copy_1: |
         Standard CVs are ugly, ineffective and outdated.
         PubliCV is the new standard for digital CVs.
         You will be <a href="#" class="text-primary">guided to create yours</a>, download its PDF version, or send it via a public link.

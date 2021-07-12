@@ -5,11 +5,11 @@ class CvsController < ApplicationController
   respond_to :html, :js
 
   def show
-    if current_user.present? && current_user.id == @cv.user_id
+    if request.path == root_path
+      @cv_edit_controls = false # public view of CV on subdomain
+    elsif current_user.present? && current_user.id == @cv.user_id
       @cv_edit_controls = params[:preview] != 't'
       @user = current_user
-    elsif @cv.published?
-      @cv_edit_controls = false # public view of CV on subdomain
     else
       redirect_to root_domain_url
     end
@@ -44,7 +44,7 @@ class CvsController < ApplicationController
       locals: { :@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
       layout: 'pdf'
     )
-    pdf = WickedPdf.new.pdf_from_string(pdf_html)
+    pdf = WickedPdf.new.pdf_from_string(pdf_html, footer: { left: '[page] / [topage]' })
     send_data pdf, filename: 'cv.pdf'
   end
 
@@ -61,7 +61,7 @@ class CvsController < ApplicationController
 
   def find_cv
     @cv = if params[:id]
-            Cv.find(params[:id])
+            Cv.find_by(id: params[:id], user_id: current_user.id)
           else
             current_user.cv
           end

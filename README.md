@@ -1,7 +1,11 @@
 # PubliCV
-PubliCV is the open source platform to help Jobseekers find their next Employer, and vice versa, _directly_ (with no intermediaries). See: https://publicv.org
+## One website for each job seeker
 
-The source code of the core service is released under the MIT license (see LICENSE and the [term of service](https://publicv.org/legal/terms) for more).
+PubliCV is the open source platform to help Job seekers find their next Employer, and vice versa, _directly_. The core idea is to simplify the job seekeing / recruitment processes by cutting the middlemen out. See: https://publicv.org 
+
+**"PubliCV: one website for each job seeker"** is now a pledge [published](https://pledgeviewer.eu/pledge/initiative/659) on the **Digital Skills and Jobs Coalition** of the **European Commission**.
+
+The source code of the core service is released under the MIT license (see the [LICENSE](https://github.com/publicv-org/publicv/blob/develop/LICENSE) file and the [terms of service](https://publicv.org/legal/terms) for more).
 
 ## Trademarks policy
 
@@ -34,8 +38,7 @@ So far so good. Now that you are all set up, you can begin to install it.
 Run the standard RoR app setup commands:
 
 1. `bundle install`
-2. `rake db:create`
-3. `rake db:migrate`
+2. `bundle exec rake db:structure:load`
 
 # Contributing
 

@@ -1,0 +1,29 @@
+<div class="bottom-bar bg-white" id="overlay-topbar">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-center py-2 border-md-0 w-100">
+      <% if @cv_edit_controls %> <!-- When CV owner is in edit mode ====== -->
+        <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary mx-2' %>
+
+        <% if @cv.published? %>
+          <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-2' %>
+        <% else %>
+          <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2' %>
+        <% end %>
+
+        <div class="dropdown dropup">
+          <button class="btn btn-outline-primary text-wrapup" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= t('content.main.buttons.download') %><i class="fas fa-angle-up pl-1"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
+            <%= link_to cv_download_path(format: :pdf), method: :put, class: 'dropdown-item py-2' do %>
+              <i class="fas fa-arrow-circle-down mr-2"></i><%= t('content.main.cv.show.pdf') %>
+            <% end %>
+          </div>
+        </div>
+
+      <% elsif @user.present? && params[:preview] == 't' %> <!-- When CV owner is in preview mode ====== -->
+        <%= link_to 'Exit preview', cv_section_path(current_user.subdomain), class: 'btn btn-primary mx-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

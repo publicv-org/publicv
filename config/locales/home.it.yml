@@ -16,11 +16,11 @@ it:
         Perché è anche <u><a class="text-primary" href="#stakeholder">tuo</a></u>.
       jobseeker_cta: Crea il tuo publiCV adesso
       jobseeker: Lavoratore <small>(o in cerca di lavoro)</small>
-      jobseeker_copy_1: |
+      jobseeker_copy_2: |
         Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV sarà <b>pubblico</b>.
           Come i nostri: <a href="https://duccio.publicv.it" class="text-primary">Duccio</a>, <a href="https://alessio.publicv.it/" class="text-primary">Alessio</a>, <a href="https://vishal.publicv.it" class="text-primary">Vishal</a>.
           Cosicché i <b>datori di lavoro</b> possano trovarti direttamente, senza intermediari.
-      jobseeker_copy_2: |
+      jobseeker_copy_1: |
         I CV tradizionali sono brutti, inefficaci e superati.
         PubliCV è il nuovo standard per <b>il tuo CV digitale</b>.
         Segui la <a href="#" class="text-primary">procedura guidata per creare il tuo Curriculum Vitae</a>,

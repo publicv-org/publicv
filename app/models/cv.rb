@@ -1,5 +1,5 @@
 class Cv < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
 
   ABOUT_MAX_LENGTH = 1000
   INFO_MAX_LENGTH = 255
