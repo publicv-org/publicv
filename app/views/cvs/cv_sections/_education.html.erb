@@ -13,7 +13,7 @@
 
     <div id='sortable-edu' data-url= '<%= update_positions_cv_educations_path %>'>
       <% educations.each_with_index do |education, index| %>
-        <div class="d-flex flex-row font-size-14 pt-5" id="education_<%= education.id %>">
+        <div class="list_edu d-flex flex-row font-size-14 pt-5" id="education_<%= education.id %>" data-id="<%= education.id %>">
 
           <span class="badge bg-light-1 h-100 p-2 mr-2">
             <i class="fas fa-md fa-building text-light-2"></i>

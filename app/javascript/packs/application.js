@@ -43,7 +43,8 @@ Turbolinks.start();
 
 import 'jquery-ui-dist/jquery-ui';
 
-import '../src/javascripts/touch_sortable';
+import Sortable from 'sortablejs/Sortable.js';
+window.Sortable = Sortable;
 $(function () {
   console.log('Hello World from Webpacker');
 });

@@ -15,28 +15,51 @@ function handleSelect(){
 }
 
 window.enableSortable = function(){
-  $('#sortable, #sortable-edu').sortable({
-      handle: '.sort_handler',
-      cursor: 'move',
-      axis: 'y',
-      stop: function (event, ui) {
-        let data = $(this).sortable('serialize');
-        let dataURL = this.getAttribute('data-url');
+  var sort_edu = document.getElementById('sortable-edu');
+  var sortable = new Sortable(sort_edu, {
+    handle: '.sort_handler',
+    animation: 150,
 
-        console.log(data); // serialize data
-
-        $.ajax({
-            data: data,
-            type: 'POST',
-            url: dataURL
-        });
+    onEnd: function(event){
+      sorting_section = document.querySelectorAll('.list_edu');
+      var sorting_params = [];
+      for (var i = 0; i < sorting_section.length; i++) {
+        data = sorting_section[i].dataset['id'];
+        sorting_params.push(data);
       }
+      var json_arr = JSON.stringify(sorting_params);
+      var xmlhttp = new XMLHttpRequest();
+      var form = new FormData;
+      form.append("education", json_arr);
+      xmlhttp.open('POST', '/cv/educations/update_positions', true);
+      xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
+      xmlhttp.send(form);
+    }
   });
+  var sort_exp = document.getElementById('sortable');
+  var sortable = new Sortable(sort_exp, {
+    handle: '.sort_handler',
+    animation: 150,
 
-  $('#sortable, #sortable-edu').disableSelection();
-}
+    onEnd: function(event){
+      sorting_section = document.querySelectorAll('.list_exp');
+      var sorting_params = [];
+      for (var i = 0; i < sorting_section.length; i++) {
+        data = sorting_section[i].dataset['id'];
+        sorting_params.push(data);
+      }
+      var json_arr = JSON.stringify(sorting_params);
+      var xmlhttp = new XMLHttpRequest();
+      var form = new FormData;
+      form.append("experience", json_arr);
+      xmlhttp.open('POST', '/cv/experiences/update_positions', true);
+      xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
+      xmlhttp.send(form);
+    }
+  });
+};
 
-$(document).on('turbolinks:load', () => {
+document.addEventListener('turbolinks:load', () => {
   handleSelect();
   window.enableSortable();
 });
