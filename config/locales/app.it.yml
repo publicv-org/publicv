@@ -8,6 +8,13 @@ it:
     c2: "C2 - Madrelingua"
   confirmation: "Sei sicuro/a?"
   content:
+    admins:
+      newsletters:
+        create: "Create Newsletter"
+        edit: " Edit Newsletter"
+        home: "Newsletters"
+        new: " New Newsletter"
+        show: "Newsletter Content"
     main:
       aria_labels:
         close: "Chiudi"
@@ -147,6 +154,7 @@ it:
       delete_account: "Eliminare l'account"
       menuitem1: 'Iscriviti per creare il tuo CV digitale'
       menuitem2: 'Accedi per aggiornare il tuo CV'
+      preference: 'Preference'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'

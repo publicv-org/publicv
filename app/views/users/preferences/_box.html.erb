@@ -1,0 +1,24 @@
+<div class="box box-primary mt-3 mb-5">
+  <div class="box-header">
+    <h5 class="box-title my-3 ml-4"><%= t('users.preferences.head') -%></h5>
+  </div>
+  <div class="box-body mt-5 mb-5">
+    <div id="preferences-flash-modal"></div>
+    <% User::EMAIL_PREFERENCES.each do |key| %>
+      <div class="row">
+        <div class="col-md-2 text-center">
+          <%= form_tag users_preferences_path, method: :put do %>
+            <%= hidden_field_tag "emails[#{key}]", 'false' %>
+            <%= check_box_tag "emails[#{key}]", true, current_user.send(key), onchange: "this.form.submit();", class: 'preference' %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= I18n.t("users.preferences.title.#{key}") %>
+        </div>
+        <div class="col-md-6">
+          <%= I18n.t("users.preferences.info.#{key}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

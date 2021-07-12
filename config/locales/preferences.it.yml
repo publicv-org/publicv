@@ -1,0 +1,11 @@
+it:
+  users:
+    preferences:
+      head: Email preferences:- which notification you would like to receive via email?
+      title:
+        email_preference_online_updates: 'Online updates'
+      info:
+        email_preference_online_updates: 'Info related to online updates'
+      update:
+        email_preference_online_updates_true: 'Online updates are set true for you'
+        email_preference_online_updates_false: 'Online updates are set false for you'

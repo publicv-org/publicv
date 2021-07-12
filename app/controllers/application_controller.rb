@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :root_domain_url
+  rescue_from CanCan::AccessDenied do |_exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to root_path, alert: I18n.t('flash.authorization') }
+    end
+  end
 
   def seo_tags_for(resource)
     @seo_title = resource.seo_title

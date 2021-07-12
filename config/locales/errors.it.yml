@@ -6,3 +6,7 @@ it:
       format: 'il formato non è valido, usa solo lettere minuscole, senza spazi.'
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'
       character_limit: 'hai superato il limite di %{length} caratteri.'
+    attributes:
+      name: 'cannot be left blank'
+      recipient_ids: 'cannot be left blank'
+    default_message: 'Cannot be saved due to %{count} errors:'

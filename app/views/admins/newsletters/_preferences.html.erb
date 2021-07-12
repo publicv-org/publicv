@@ -1,0 +1,7 @@
+<div class="form-group">
+  <%= label_tag 'newsletter[preference_type]', 'Preferences Type', { class: 'col-md-2 control-label ml-3 font-weight-bold' } %>
+    <%= select_tag 'newsletter[preference_type]', options_for_select(User::EMAIL_PREFERENCES.collect{ |p| [p.titleize, p] },
+                                                                     @newsletter&.preference_type),
+                   class: 'form-control col-md-8 ml-5'
+    %>
+</div>

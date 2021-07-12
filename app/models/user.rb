@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :registerable, :rememberable,
          :timeoutable, :trackable, :validatable, :confirmable
+  mailkick_user
 
+  EMAIL_PREFERENCES = ['email_preference_online_updates'].freeze
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
   has_many :contacts, dependent: :destroy

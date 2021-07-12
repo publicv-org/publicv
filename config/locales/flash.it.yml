@@ -1,4 +1,12 @@
 it:
- flash:
-   searches:
-     query_blank: per favore inserisci un termine di ricerca per cercare candidati!
+  flash:
+    searches:
+      query_blank: please insert a search term in order to look for candidates!
+    update: 'Update completed successfully.'
+    create: 'Successfully created.'
+    authorization: 'You are not authorized to perform this action.'
+    admins:
+      submittal:
+        create:
+          success: Successfully send newsletter to users %{opted_user_ids}.
+          fail: Cannot send newsletter for users %{opt_out_user_ids} as user hasn't opted for email preference.

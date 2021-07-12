@@ -8,6 +8,13 @@ en:
     c2: "C2 - Proficiency"
   confirmation: "Are you sure?"
   content:
+    admins:
+      newsletters:
+        create: "Create Newsletter"
+        edit: " Edit Newsletter"
+        home: "Newsletters"
+        new: " New Newsletter"
+        show: "Newsletter Content"
     main:
       aria_labels:
         close: "Close"
@@ -147,6 +154,7 @@ en:
       delete_account: "Delete Account"
       menuitem1: 'Sign up to create your profile and CV'
       menuitem2: 'Sign in to update your profile and CV'
+      preference: 'Preferences'
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

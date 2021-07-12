@@ -5,6 +5,7 @@ ruby '2.4.0'
 # ruby File.read('.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'cancancan'
 gem 'devise'
 gem 'devise-i18n'
 gem 'figaro'
@@ -31,7 +32,10 @@ gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
-
+# editor
+gem 'trix-rails', require: 'trix'
+# Email unsubscribe
+gem 'mailkick'
 gem 'scenic'
 
 group :development do
